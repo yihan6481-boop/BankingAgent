@@ -16,8 +16,11 @@
     "Keep only formal runtime mode in native gateway launchers",
     "Remove initialization evidence file output; keep data validation"
   ],
-  "tests_included": false,
+  "tests_included": true,
   "historical_evidence_included": false,
   "complete_business_rerun": false,
-  "production_deployment_performed": false
+  "production_deployment_performed": false,
+  "submission_revision": "submission-aligned-20261102-r1",
+  "current_test_scope": "17 deterministic risk-statistics tests; no PG/model/HTTP/end-to-end acceptance",
+  "historical_metadata_note": "Original cleanup/build fields above describe the original packaging stage, not the current server. See SUBMISSION_VERSION.json for this material revision."
 }

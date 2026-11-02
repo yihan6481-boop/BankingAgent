@@ -1,0 +1,22 @@
+{
+  "format": 1,
+  "submission_revision": "submission-aligned-20261102-r1",
+  "created_date": "2026-11-02",
+  "source_baseline": "final5-memoryfix1-slim-20261102",
+  "runtime_content_sha256": "b48223b0817a812cf0afd76700d059e2112b8b5ef8a26486edfbaff6819e5f72",
+  "runtime_content_algorithm": "SHA256 of UTF-8 sorted relative_path + TAB + file_SHA256 + LF for files under backend/frontend/deploy/tools/demo/manual",
+  "runtime_content_file_count": 368,
+  "business_runtime_changed_in_this_revision": false,
+  "sms_receiver_mode": "security_phone_number",
+  "historical_ppt_runtime_build": "e0c62a55524a",
+  "historical_ppt_ui_sha256_prefix": "6109625d8918",
+  "historical_server_metadata": "SERVER_VERSION.json is an archived deployment record; not a live server reading",
+  "live_server_checked_in_this_revision": false,
+  "verification": {
+    "risk_statistics_tests": 17,
+    "risk_statistics_passed": 17,
+    "full_regression": false,
+    "clean_host_deployment": false
+  },
+  "delivery_notes": "PPT and reports are separate competition attachments. Current source package excludes .git history, previous tests and logs. See docs/REVIEW_GUIDE.md."
+}

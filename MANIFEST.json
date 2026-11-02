@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 15290,
-      "sha256": "0bcbbb94e4b9aa08e95baa7ad13012d88a3c1b9fced55b91e7bea103168a423c"
+      "bytes": 16781,
+      "sha256": "21f289b19a48b0ec75da1d06718c95d14e242417782392e697852b2a69567e7e"
     },
     {
       "path": "SERVER_VERSION.json",
@@ -37,8 +37,13 @@
     },
     {
       "path": "SOURCE_PACKAGE.json",
-      "bytes": 1016,
-      "sha256": "88da0bb7f248a237b8a8db9d0516e0acf605c42c682fcaf2903ecd3cbe6ccaf9"
+      "bytes": 1368,
+      "sha256": "d54160ff6330b50c8bfe7e0125b052d5dcf6409ef2611d905b6a82bd5b7f6285"
+    },
+    {
+      "path": "SUBMISSION_VERSION.json",
+      "bytes": 1152,
+      "sha256": "302eaae5c3c1cea043c79bf824a4f4fe4846611cb81d4c889b17099fd8dcf622"
     },
     {
       "path": "backend/.gitignore",
@@ -1326,6 +1331,21 @@
       "sha256": "1c9f63f7010c660abb8440cda0081d635a277f4fd7a53c1970143f2a22bd1dec"
     },
     {
+      "path": "docs/REVIEW_GUIDE.md",
+      "bytes": 4280,
+      "sha256": "54e5892de021867ef34d92dfff22ed04b18492d5980ca240449d5efb93693449"
+    },
+    {
+      "path": "docs/TESTING.md",
+      "bytes": 1652,
+      "sha256": "24da03272c18f0307b6aec4c8381066671c51acc99cd8cfade44836e614cd4ac"
+    },
+    {
+      "path": "docs/assets/demo2-gesture.png",
+      "bytes": 35849,
+      "sha256": "8cedd910ead9d0d3e888635a888937223384c25d7840f46a51d853e115c64d15"
+    },
+    {
       "path": "frontend/.env.example",
       "bytes": 85,
       "sha256": "a51c9b28f874e2a0a9553477d2962fb2ecba9ce7e2028a3a657e58af52989e62"
@@ -1846,6 +1866,11 @@
       "sha256": "07cc2a34b518212c3563644fe2dee458b82135ec7d2ed022eef6f8ac061fb770"
     },
     {
+      "path": "tests/test_risk_statistics.py",
+      "bytes": 5677,
+      "sha256": "2bcc15af2042fb86b564e3b42c0bdfc5657f9f0f5d1471436559889919f72fc1"
+    },
+    {
       "path": "tools/demo_sms_receiver.html",
       "bytes": 3618,
       "sha256": "3ac635b2f4d31192353b75a73ee72725abeab866dab0fb80059a759c2a754204"
@@ -1899,16 +1924,12 @@
       "path": "tools/server_entry.py",
       "bytes": 7196,
       "sha256": "f3f44348a25b916d7a5c1eb3b3323151c6376c7f189c21c392328c21f96a14ac"
-    },
-    {
-      "path": "docs/assets/demo2-gesture.png",
-      "bytes": 35849,
-      "sha256": "8cedd910ead9d0d3e888635a888937223384c25d7840f46a51d853e115c64d15"
     }
   ],
   "local_code_change": {
     "name": "sms-phone-20261102",
     "tests_run": false,
     "deployed": false
-  }
+  },
+  "submission_revision": "submission-aligned-20261102-r1"
 }
