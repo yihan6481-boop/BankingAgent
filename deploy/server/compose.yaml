@@ -1,0 +1,117 @@
+name: banking-server
+x-logging: &logging
+  driver: local
+  options: {max-size: "10m", max-file: "3"}
+x-app: &app
+  image: banking-server:${RELEASE_ID:?set RELEASE_ID}
+  build: {context: ../.., dockerfile: deploy/server/Dockerfile, target: bank}
+  restart: unless-stopped
+  init: true
+  read_only: true
+  tmpfs: [/tmp]
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  logging: *logging
+  environment: {TZ: Asia/Shanghai}
+  networks: [internal]
+services:
+  database:
+    image: ${PG_IMAGE:?set a reviewed PG17 image with pgvector 0.8.7}
+    command: [postgres, -c, timezone=Asia/Shanghai, -c, log_timezone=Asia/Shanghai]
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-admin
+    volumes:
+      - ${DATA_ROOT:?set DATA_ROOT}/postgres:/var/lib/postgresql/data
+      - ${PRIVATE_ROOT:?set PRIVATE_ROOT}/postgres-admin:/run/secrets/postgres-admin:ro
+    restart: unless-stopped
+    logging: *logging
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [internal]
+  gateway:
+    <<: *app
+    command: [--component, gateway, --config, /run/private/gateway.json]
+    volumes:
+      - ${PRIVATE_ROOT}/gateway:/run/private:ro
+      - ${DATA_ROOT}/shared/budget:/state/budget
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18761/health',timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 8
+  memory:
+    image: banking-memory:${RELEASE_ID}
+    build: {context: ../.., dockerfile: deploy/server/Dockerfile, target: memory}
+    command: [--component, memory, --config, /run/private/memory.json]
+    volumes:
+      - ${PRIVATE_ROOT}/memory:/run/private:ro
+      - ${DATA_ROOT}/memory:/state
+      - ${MODEL_ROOT:?set MODEL_ROOT}:/models:ro
+    restart: unless-stopped
+    init: true
+    environment: {TZ: Asia/Shanghai}
+    logging: *logging
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    depends_on:
+      database: {condition: service_healthy}
+      gateway: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, /app/deploy/server/health.py, memory, /run/private/memory.json]
+      interval: 30s
+      timeout: 15s
+      start_period: 180s
+      retries: 8
+    networks: [internal]
+  bank:
+    <<: *app
+    command: [--component, bank, --config, /run/private/server.json]
+    volumes:
+      - ${PRIVATE_ROOT}/bank:/run/private:ro
+      - ${DATA_ROOT}/shared:/state
+      - ${DATA_ROOT}/mobile:/mobile
+    ports: ["127.0.0.1:${BANK_HOST_PORT:-8039}:8039"]
+    depends_on:
+      database: {condition: service_healthy}
+      memory: {condition: service_healthy}
+      gateway: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8039/health/ready',timeout=20)"]
+      interval: 30s
+      timeout: 25s
+      retries: 5
+  sms:
+    <<: *app
+    command: [--component, sms, --config, /run/private/sms.json]
+    volumes:
+      - ${PRIVATE_ROOT}/sms:/run/private:ro
+      - ${DATA_ROOT}/mobile:/mobile
+    healthcheck:
+      test: [CMD, python, /app/deploy/server/health.py, sms, /run/private/sms.json]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  proxy:
+    image: ${NGINX_IMAGE:?set a reviewed nginx image}
+    volumes:
+      - ${PROXY_CONFIG:?set PROXY_CONFIG}:/etc/nginx/conf.d/default.conf:ro
+      - ${TLS_ROOT:?set TLS_ROOT}:/etc/nginx/tls:ro
+    ports: ["80:80", "443:443"]
+    depends_on:
+      bank: {condition: service_healthy}
+      sms: {condition: service_healthy}
+    restart: unless-stopped
+    logging: *logging
+    networks:
+      internal: {ipv4_address: "${PROXY_IP:-172.30.39.10}"}
+networks:
+  internal:
+    ipam:
+      config: [{subnet: "${NETWORK_SUBNET:-172.30.39.0/24}"}]
+# No DB, memory or gateway host ports. One worker per app; no automatic seed/migrate.

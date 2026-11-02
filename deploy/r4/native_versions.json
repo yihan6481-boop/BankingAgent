@@ -1,0 +1,14 @@
+{
+  "hindsight": "1.1.0",
+  "postgres_major": 17,
+  "vector": "0.8.7",
+  "python": "3.11",
+  "memory_database": "r4_memory_native",
+  "business_database": "banking_demo",
+  "locks": {
+    "requirements-bank.lock.txt": "580dfd34f05a7c58d25f7f11d8d54b8630e4520739959a6a5510ee30d2cf3b62",
+    "requirements-native-linux.lock.txt": "ffff62f7882226eb4b7301d995b5c20fdc33f002a41f743ebc9cdde7ae8607a0",
+    "requirements-native-windows.lock.txt": "366962530777af8b1a11dd66b1e0c77127af1dca1621765dad16232979144235"
+  },
+  "linux_validation": "dependency_resolution_only_not_server_execution"
+}

@@ -1,0 +1,6 @@
+{
+  "host": "database",
+  "port": 5432,
+  "database": "banking_server_main",
+  "passfile": "/run/private/pgpass"
+}

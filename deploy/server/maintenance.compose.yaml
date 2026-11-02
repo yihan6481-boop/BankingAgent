@@ -1,0 +1,14 @@
+# Explicitly invoked only for schema inspection/migration or inbox provisioning.
+# Ordinary compose up excludes this service.
+services:
+  maintenance:
+    image: banking-server:${RELEASE_ID:?set RELEASE_ID}
+    profiles: [maintenance]
+    user: "10001:10001"
+    entrypoint: [python]
+    command: [deploy/server/migrate.py, --config, /run/private/migration.json]
+    volumes:
+      - ${PRIVATE_ROOT:?set PRIVATE_ROOT}/admin:/run/private
+      - ${DATA_ROOT:?set DATA_ROOT}/mobile:/mobile
+    networks: [internal]
+    logging: {driver: local, options: {max-size: "10m", max-file: "3"}}

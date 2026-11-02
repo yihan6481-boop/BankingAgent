@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "component": "memory",
+  "environment": "/run/private/memory.env",
+  "state_dir": "/state",
+  "restore_identity": "/run/private/restore-identity.json",
+  "database": {
+    "host": "database",
+    "port": 5432,
+    "name": "r4_memory_server_main",
+    "role": "r4_hindsight_native"
+  }
+}

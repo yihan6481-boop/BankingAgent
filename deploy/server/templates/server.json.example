@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "kind": "server",
+  "layout": "compose",
+  "deployment_id": "baseline-closure-20261031-102233",
+  "port": 8039,
+  "database": {
+    "host": "database",
+    "port": 5432,
+    "name": "banking_server_main",
+    "role": "banking_runtime",
+    "passfile": "/run/private/pgpass"
+  },
+  "files": {
+    "totp_key": "/run/private/totp.key",
+    "payment_key": "/run/private/payment.key",
+    "spool_key": "/mobile/sms/spool.key",
+    "seat_credentials": "/run/private/seat.json",
+    "model_environment": "/run/private/model.env",
+    "memory_client": "/run/private/memory-client.json",
+    "memory_fence": "/state/memory-fence.json",
+    "budget_config": "/run/private/budget.json",
+    "restore_identity": "/run/private/restore-identity.json"
+  },
+  "state_dir": "/state",
+  "mobile_state_dir": "/mobile",
+  "bank_origin": "https://bank.example.invalid",
+  "sms_origin": "https://sms.example.invalid",
+  "trusted_proxy_addresses": [
+    "172.30.39.10"
+  ],
+  "gateway_url": "http://gateway:18761"
+}

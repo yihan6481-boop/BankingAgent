@@ -1,0 +1,34 @@
+# Local dependencies and caches
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+coverage/
+# Private configuration and generated state
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.dump
+*.backup
+*.db
+*.sqlite*
+*.log
+*.jsonl
+logs/
+evidence/
+evaluation/
+state/
+backups/
+demo/generated/
+demo/LOCAL_LOGINS.md
+tools/local_config_path.txt
+tools/local_python_path.txt
+# Current prebuilt UI is required by Docker and the integrated launcher.
+!frontend/dist/
+!frontend/dist/**

@@ -1,2 +1,3 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# This release binds exact file bytes in MANIFEST.json.
+* -text
+backend/storage/sql/*.sql -text

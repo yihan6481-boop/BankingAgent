@@ -1,0 +1,6 @@
+{
+  "format": 1,
+  "component": "gateway",
+  "environment": "/run/private/gateway.env",
+  "budget_config": "/run/private/budget.json"
+}

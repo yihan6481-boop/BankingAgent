@@ -1,0 +1,6 @@
+# Required PostgreSQL runtime pins; no SQLite application backend.
+psycopg[binary]==3.3.3
+psycopg-binary==3.3.3
+psycopg-pool==3.3.3
+typing-extensions==4.15.0
+tzdata==2026.2

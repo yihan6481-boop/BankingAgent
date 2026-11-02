@@ -1,0 +1,9 @@
+{
+  "format": 1,
+  "component": "sms",
+  "mobile_state_dir": "/mobile",
+  "sms_origin": "https://sms.example.invalid",
+  "trusted_proxy_addresses": [
+    "172.30.39.10"
+  ]
+}

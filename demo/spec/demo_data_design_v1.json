@@ -1,0 +1,1803 @@
+{
+  "spec_version": "SZ-DEMO-1.0",
+  "dataset_key": "sz-banking-demo-v1",
+  "status": "accepted_design_not_executable_seed",
+  "timezone": "Asia/Shanghai",
+  "currency": "CNY",
+  "snapshot_date": "2026-09-30",
+  "history_target_start": "2026-07-01",
+  "history_target_end_exclusive": "2026-10-01",
+  "deterministic_namespace": "4c0979de-2b31-4b7b-b6b2-191349619eb7",
+  "transaction_generation_seed": 20261014,
+  "all_people_and_businesses_fictional": true,
+  "users": [
+    {
+      "key": "U01",
+      "id": "4a5a6f60-7bc5-5538-93cb-5fe0302a26d7",
+      "name": "林悦",
+      "age_at_snapshot": 23,
+      "gender": "女",
+      "city": "深圳",
+      "location": "南山区工作，宝安西乡合租",
+      "persona": "民营电商公司运营，2026年7月入职",
+      "monthly_salary_minor": 900000,
+      "bank_balance_minor": 1884236,
+      "investment_principal_minor": 300000
+    },
+    {
+      "key": "U02",
+      "id": "3a85a59e-2c46-59f3-a3d7-d697bc857246",
+      "name": "陈静",
+      "age_at_snapshot": 29,
+      "gender": "女",
+      "city": "深圳",
+      "location": "龙华区",
+      "persona": "初中数学老师，已婚，女儿1岁，夫妻租房",
+      "monthly_salary_minor": 1450000,
+      "bank_balance_minor": 9884050,
+      "investment_principal_minor": 4000000
+    },
+    {
+      "key": "U03",
+      "id": "8bec9ceb-e565-5e05-8a3a-4cceb1c3329a",
+      "name": "周浩",
+      "age_at_snapshot": 30,
+      "gender": "男",
+      "city": "深圳",
+      "location": "宝安区",
+      "persona": "民营科技公司工程师，已婚，孩子4岁，自住房及家用车",
+      "monthly_salary_minor": 2050000,
+      "bank_balance_minor": 4733024,
+      "investment_principal_minor": 2000000
+    },
+    {
+      "key": "U04",
+      "id": "1c2adf42-817b-5261-a04a-10d515f851fd",
+      "name": "刘建国",
+      "age_at_snapshot": 42,
+      "gender": "男",
+      "city": "深圳",
+      "location": "宝安沙井",
+      "persona": "电子烟代工厂老板，已婚，两个孩子，100名工人，租赁3000平方米厂房",
+      "monthly_salary_minor": 3000000,
+      "bank_balance_minor": 30275080,
+      "investment_principal_minor": 10000000
+    },
+    {
+      "key": "U05",
+      "id": "11492862-9279-57dc-bfbf-0c561b91d275",
+      "name": "王磊",
+      "age_at_snapshot": 26,
+      "gender": "男",
+      "city": "深圳",
+      "location": "龙岗区",
+      "persona": "外卖骑手，工作两年，租单间及电动车，每月给父母生活费",
+      "monthly_salary_minor": null,
+      "bank_balance_minor": 4036018,
+      "investment_principal_minor": 500000
+    }
+  ],
+  "personal_accounts": [
+    {
+      "key": "U01-A01",
+      "id": "e9e63a3d-17ec-59ce-bd16-16a5f58500eb",
+      "owner_key": "U01",
+      "currency": "CNY",
+      "purpose": "工资及日常消费",
+      "posted_minor": 684236,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U01-A01",
+      "scope": "personal"
+    },
+    {
+      "key": "U01-A02",
+      "id": "60954599-efda-57a7-995e-ebac5bfb75b5",
+      "owner_key": "U01",
+      "currency": "CNY",
+      "purpose": "储蓄备用金",
+      "posted_minor": 1200000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U01-A02",
+      "scope": "personal"
+    },
+    {
+      "key": "U02-A01",
+      "id": "ec719dba-24da-56fe-a333-c44cf3a13c70",
+      "owner_key": "U02",
+      "currency": "CNY",
+      "purpose": "工资绩效",
+      "posted_minor": 2864050,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U02-A01",
+      "scope": "personal"
+    },
+    {
+      "key": "U02-A02",
+      "id": "36f47730-a01d-5fb2-af6d-da66dc62cd15",
+      "owner_key": "U02",
+      "currency": "CNY",
+      "purpose": "家庭储蓄",
+      "posted_minor": 6500000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U02-A02",
+      "scope": "personal"
+    },
+    {
+      "key": "U02-A03",
+      "id": "74a831ef-48f6-5349-a989-c1a27032cd76",
+      "owner_key": "U02",
+      "currency": "CNY",
+      "purpose": "育儿日常支出",
+      "posted_minor": 520000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U02-A03",
+      "scope": "personal"
+    },
+    {
+      "key": "U03-A01",
+      "id": "c18ec4da-73bf-583a-aa19-ea5182534e91",
+      "owner_key": "U03",
+      "currency": "CNY",
+      "purpose": "工资消费",
+      "posted_minor": 1583024,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U03-A01",
+      "scope": "personal"
+    },
+    {
+      "key": "U03-A02",
+      "id": "0d52ee23-b83e-5b4b-a2ce-516cb5f08fa3",
+      "owner_key": "U03",
+      "currency": "CNY",
+      "purpose": "房贷车贷还款准备金",
+      "posted_minor": 2850000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U03-A02",
+      "scope": "personal"
+    },
+    {
+      "key": "U03-A03",
+      "id": "e1f803dc-4936-52cf-b2c3-c96fe42b32a6",
+      "owner_key": "U03",
+      "currency": "CNY",
+      "purpose": "日常零用",
+      "posted_minor": 300000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U03-A03",
+      "scope": "personal"
+    },
+    {
+      "key": "U04-A01",
+      "id": "73df665e-598a-51df-9f92-ef3691ac08eb",
+      "owner_key": "U04",
+      "currency": "CNY",
+      "purpose": "个人薪酬消费",
+      "posted_minor": 8625080,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U04-A01",
+      "scope": "personal"
+    },
+    {
+      "key": "U04-A02",
+      "id": "422d0dce-9872-5166-a691-9c86e89905ee",
+      "owner_key": "U04",
+      "currency": "CNY",
+      "purpose": "个人储蓄",
+      "posted_minor": 18000000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U04-A02",
+      "scope": "personal"
+    },
+    {
+      "key": "U04-A03",
+      "id": "02af8cdd-4aa2-5b6d-acd7-3a025e4f4b0c",
+      "owner_key": "U04",
+      "currency": "CNY",
+      "purpose": "家庭开支",
+      "posted_minor": 3650000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U04-A03",
+      "scope": "personal"
+    },
+    {
+      "key": "U05-A01",
+      "id": "31c73e3e-b804-54b9-bc1f-9c1e39810e83",
+      "owner_key": "U05",
+      "currency": "CNY",
+      "purpose": "配送结算及日常消费",
+      "posted_minor": 1236018,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U05-A01",
+      "scope": "personal"
+    },
+    {
+      "key": "U05-A02",
+      "id": "4e4e6ec3-7eba-5c88-9527-254cfa38d5b1",
+      "owner_key": "U05",
+      "currency": "CNY",
+      "purpose": "储蓄及父母生活费",
+      "posted_minor": 2800000,
+      "held_minor": 0,
+      "synthetic_account_ref": "DEMO-U05-A02",
+      "scope": "personal"
+    }
+  ],
+  "cards": [
+    {
+      "key": "U01-C01",
+      "id": "38495efa-2129-5dab-a127-9dad75909863",
+      "owner_key": "U01",
+      "account_key": "U01-A01",
+      "bank_display_name": "招商银行",
+      "display_tail": "1038",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 500000,
+      "daily_limit_minor": 1000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U01-C02",
+      "id": "5eeffd5e-0980-5972-bb8c-089fb01bec42",
+      "owner_key": "U01",
+      "account_key": "U01-A02",
+      "bank_display_name": "建设银行",
+      "display_tail": "6271",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 2000000,
+      "daily_limit_minor": 5000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U02-C01",
+      "id": "e4ba3c66-0a9f-5c36-b144-e71cbc68071e",
+      "owner_key": "U02",
+      "account_key": "U02-A01",
+      "bank_display_name": "工商银行",
+      "display_tail": "2856",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 2000000,
+      "daily_limit_minor": 5000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U02-C02",
+      "id": "b22c9a25-5d48-5a49-a9c8-5297a99be23a",
+      "owner_key": "U02",
+      "account_key": "U02-A02",
+      "bank_display_name": "建设银行",
+      "display_tail": "3912",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 5000000,
+      "daily_limit_minor": 10000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U02-C03",
+      "id": "0bbe39a2-0e67-5c58-b3c9-c5df807ec4cf",
+      "owner_key": "U02",
+      "account_key": "U02-A03",
+      "bank_display_name": "招商银行",
+      "display_tail": "7605",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 500000,
+      "daily_limit_minor": 1000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U03-C01",
+      "id": "d27bc530-a3cd-5338-a765-42c0e5555ec5",
+      "owner_key": "U03",
+      "account_key": "U03-A01",
+      "bank_display_name": "招商银行",
+      "display_tail": "4820",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 2000000,
+      "daily_limit_minor": 5000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U03-C02",
+      "id": "9d24a684-fd1d-5265-821b-59069e2bcc86",
+      "owner_key": "U03",
+      "account_key": "U03-A02",
+      "bank_display_name": "建设银行",
+      "display_tail": "6158",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 2000000,
+      "daily_limit_minor": 5000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U03-C03",
+      "id": "fb2cd49b-198b-5945-bb1e-8a3669997df9",
+      "owner_key": "U03",
+      "account_key": "U03-A03",
+      "bank_display_name": "平安银行",
+      "display_tail": "9037",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 500000,
+      "daily_limit_minor": 1000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U04-C01",
+      "id": "e23b3c3f-bcf1-5166-b3dc-8a6ad8cfb23c",
+      "owner_key": "U04",
+      "account_key": "U04-A01",
+      "bank_display_name": "招商银行",
+      "display_tail": "1689",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 5000000,
+      "daily_limit_minor": 10000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U04-C02",
+      "id": "092aa870-bf3f-5fa2-97f2-fccb9261a0a6",
+      "owner_key": "U04",
+      "account_key": "U04-A02",
+      "bank_display_name": "工商银行",
+      "display_tail": "5526",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 10000000,
+      "daily_limit_minor": 20000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U04-C03",
+      "id": "de175f47-85f7-5f26-800c-0f15ff8f3b47",
+      "owner_key": "U04",
+      "account_key": "U04-A03",
+      "bank_display_name": "平安银行",
+      "display_tail": "8073",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 2000000,
+      "daily_limit_minor": 5000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U05-C01",
+      "id": "0e63c2b1-e4bc-5554-a52b-12e14b5c5207",
+      "owner_key": "U05",
+      "account_key": "U05-A01",
+      "bank_display_name": "农业银行",
+      "display_tail": "4319",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 500000,
+      "daily_limit_minor": 1000000,
+      "limit_origin": "demo_configuration"
+    },
+    {
+      "key": "U05-C02",
+      "id": "03de8185-58c6-5004-97ff-7ca4927bc6cf",
+      "owner_key": "U05",
+      "account_key": "U05-A02",
+      "bank_display_name": "邮储银行",
+      "display_tail": "6724",
+      "card_kind": "debit",
+      "status": "active",
+      "per_tx_limit_minor": 1000000,
+      "daily_limit_minor": 2000000,
+      "limit_origin": "demo_configuration"
+    }
+  ],
+  "contacts": [
+    {
+      "key": "R01",
+      "id": "266c5e97-bf5c-5481-bf24-10dc56d90999",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "林国强",
+      "relationship": "父亲，临时生活补贴",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R01",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R02",
+      "id": "37c308e3-a48d-5912-8b03-212ac85221e8",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "吴秀兰",
+      "relationship": "母亲，每月生活费",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R02",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R03",
+      "id": "8f0334a4-da37-5ff0-bc16-ae1e3e05b729",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "林辰",
+      "relationship": "弟弟，生活费或生日红包",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R03",
+      "typical_min_minor": 30000,
+      "typical_max_minor": 30000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R04",
+      "id": "dabba16f-89ff-52d6-9d15-7a447df6e7da",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "赵丽",
+      "relationship": "房东，月租",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R04",
+      "typical_min_minor": 240000,
+      "typical_max_minor": 240000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R05",
+      "id": "7a2d80a4-d71b-55cf-8cad-fdd114288d02",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "许欣",
+      "relationship": "室友，水电分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R05",
+      "typical_min_minor": 8000,
+      "typical_max_minor": 18000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R06",
+      "id": "75607dec-ab26-5bcf-9378-d07e5c965341",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "张敏",
+      "relationship": "同事，聚餐AA",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R06",
+      "typical_min_minor": 5000,
+      "typical_max_minor": 20000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R07",
+      "id": "75211fbe-3714-5380-95c0-9f34e60058fa",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "张敏",
+      "relationship": "表姐，礼金或借款归还",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R07",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 200000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R08",
+      "id": "c22f9307-aebe-54cc-9784-3ab73a99e0d4",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "李佳",
+      "relationship": "大学好友，旅行分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R08",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 80000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R09",
+      "id": "c4bff5a2-875b-599f-b2e8-3c8734eb28b7",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "陈宇",
+      "relationship": "项目同事，垫付",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R09",
+      "typical_min_minor": 10000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R10",
+      "id": "efa07b59-cac2-59ee-92be-65c16c97dd1c",
+      "associated_user_key": "U01",
+      "owner_scope_key": "U01",
+      "display_name": "周妍",
+      "relationship": "朋友，生日红包",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R10",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 20000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R11",
+      "id": "1cd567f3-53c0-591d-a454-2de2923e3e2a",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "李明",
+      "relationship": "丈夫，家庭资金往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R11",
+      "typical_min_minor": 200000,
+      "typical_max_minor": 500000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R12",
+      "id": "0eeadd6c-dbc5-5b82-a2ae-4a7eec39ef91",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "王淑芬",
+      "relationship": "母亲，带娃补贴",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R12",
+      "typical_min_minor": 180000,
+      "typical_max_minor": 180000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R13",
+      "id": "ddc8c1d1-9e04-56e2-b8a7-e6424b12c86a",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "陈志远",
+      "relationship": "父亲，生活费或礼金",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R13",
+      "typical_min_minor": 100000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R14",
+      "id": "e2780c0e-d7ad-5264-946b-a63b4a9b461c",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "李秀英",
+      "relationship": "婆婆，家庭往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R14",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R15",
+      "id": "f55d1d17-f085-551a-ae53-b60660535c45",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "何丽",
+      "relationship": "房东，个人承担房租",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R15",
+      "typical_min_minor": 220000,
+      "typical_max_minor": 220000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R16",
+      "id": "3df6c31a-623c-513b-b7d1-cf48ce5ac811",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "深圳童伴托育服务有限公司",
+      "relationship": "托育，虚构机构",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R16",
+      "typical_min_minor": 300000,
+      "typical_max_minor": 300000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R17",
+      "id": "94407c46-3d7f-51c8-bd39-97bf1a909bf7",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "黄玲",
+      "relationship": "年级同事，聚餐分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R17",
+      "typical_min_minor": 10000,
+      "typical_max_minor": 30000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R18",
+      "id": "71dd2d39-b722-5e85-84ca-533260e9724c",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "郑芳",
+      "relationship": "好友，礼金",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R18",
+      "typical_min_minor": 30000,
+      "typical_max_minor": 80000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R19",
+      "id": "751bd5f7-6845-5b69-b5bb-5be3c706cde3",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "陈妍",
+      "relationship": "妹妹，家庭往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R19",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R20",
+      "id": "91bce040-b526-5699-ba51-3cb4c969da20",
+      "associated_user_key": "U02",
+      "owner_scope_key": "U02",
+      "display_name": "孙阿姨",
+      "relationship": "临时照护人员",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R20",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 60000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R21",
+      "id": "276010be-5ded-5108-9eb9-56f9aee89b6c",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "许雯",
+      "relationship": "妻子，家庭资金往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R21",
+      "typical_min_minor": 300000,
+      "typical_max_minor": 800000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R22",
+      "id": "d18d334f-2196-5681-a8b2-33316780bb00",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "周志成",
+      "relationship": "父亲，生活费",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R22",
+      "typical_min_minor": 100000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R23",
+      "id": "5267f01d-3950-5f10-b220-10041f92e5c8",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "黄桂芬",
+      "relationship": "母亲，家庭往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R23",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R24",
+      "id": "7eef7cca-7bba-51b2-9532-fe29e97fd01f",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "许建华",
+      "relationship": "岳父，礼金",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R24",
+      "typical_min_minor": 100000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R25",
+      "id": "7a5a3b4b-b050-564a-8a14-33f706adf66d",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "刘洋",
+      "relationship": "同事，餐费分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R25",
+      "typical_min_minor": 10000,
+      "typical_max_minor": 30000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R26",
+      "id": "16a5a05d-3580-53f8-a458-e093e9314148",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "陈伟",
+      "relationship": "好友，借款归还",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R26",
+      "typical_min_minor": 200000,
+      "typical_max_minor": 500000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R27",
+      "id": "db443955-c200-5352-9f47-52e1bfbde42f",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "张强",
+      "relationship": "邻居，活动分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R27",
+      "typical_min_minor": 10000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R28",
+      "id": "4423ffbc-1780-5e35-b449-b7b0ae28fe2b",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "深圳启航托管服务有限公司",
+      "relationship": "课后托管，虚构机构",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R28",
+      "typical_min_minor": 120000,
+      "typical_max_minor": 120000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R29",
+      "id": "e7a0c579-1941-532b-80fa-43b5884b3c03",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "深圳安顺汽车服务有限公司",
+      "relationship": "维修保养，虚构机构",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R29",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 200000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R30",
+      "id": "a3fd1716-e22b-549d-b051-d1b7e2d565e7",
+      "associated_user_key": "U03",
+      "owner_scope_key": "U03",
+      "display_name": "李娜",
+      "relationship": "亲属，礼金",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R30",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R31",
+      "id": "19c56118-2d61-58a6-a0f5-5239e9dede94",
+      "associated_user_key": "U04",
+      "owner_scope_key": "U04",
+      "display_name": "孙颖",
+      "relationship": "妻子，家庭开支",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R31",
+      "typical_min_minor": 1200000,
+      "typical_max_minor": 1200000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R32",
+      "id": "bd01b47f-99ef-5fcb-bb00-6d1b362da2e6",
+      "associated_user_key": "U04",
+      "owner_scope_key": "U04",
+      "display_name": "罗志强",
+      "relationship": "厂长，个人垫付归还",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R32",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 300000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R33",
+      "id": "e8c0255e-7129-579e-a9d9-911d4d676f5b",
+      "associated_user_key": "U04",
+      "owner_scope_key": "U04",
+      "display_name": "周小燕",
+      "relationship": "财务人员，个人垫付归还",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R33",
+      "typical_min_minor": 50000,
+      "typical_max_minor": 200000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R34",
+      "id": "044f3d81-2595-5a84-b180-dda2fa127ee0",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳锦丰物业管理有限公司",
+      "relationship": "厂房出租方",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R34",
+      "typical_min_minor": 6000000,
+      "typical_max_minor": 6000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R35",
+      "id": "6c01e3e7-273b-59ab-8846-10f093904123",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳瑞科电池有限公司",
+      "relationship": "电池供应商",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R35",
+      "typical_min_minor": 18000000,
+      "typical_max_minor": 30000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R36",
+      "id": "26a6b285-15a5-5346-a03a-23ada68a7566",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "东莞创源五金有限公司",
+      "relationship": "五金供应商",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R36",
+      "typical_min_minor": 10000000,
+      "typical_max_minor": 20000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R37",
+      "id": "2f064a3e-879a-5944-b830-e995ce664d3b",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳锐成包装有限公司",
+      "relationship": "包装供应商",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R37",
+      "typical_min_minor": 5000000,
+      "typical_max_minor": 10000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R38",
+      "id": "b4a89f69-9eb2-58b5-9668-66c1fe7ab65f",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳澄海电子贸易有限公司",
+      "relationship": "客户，货款往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R38",
+      "typical_min_minor": 30000000,
+      "typical_max_minor": 80000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R39",
+      "id": "74377497-3472-593a-9628-04d47a1b9ef8",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳远帆科技有限公司",
+      "relationship": "客户，货款往来",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R39",
+      "typical_min_minor": 30000000,
+      "typical_max_minor": 100000000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R40",
+      "id": "81671c31-4eb7-5b1f-a1d9-8ddcd1b1783e",
+      "associated_user_key": "U04",
+      "owner_scope_key": "ORG01",
+      "display_name": "深圳速联物流有限公司",
+      "relationship": "物流费用",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R40",
+      "typical_min_minor": 1000000,
+      "typical_max_minor": 4500000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R41",
+      "id": "757d3b5a-8f9b-5142-b6ba-f0a8f5b9e337",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "王建军",
+      "relationship": "父亲，生活费",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R41",
+      "typical_min_minor": 120000,
+      "typical_max_minor": 120000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R42",
+      "id": "acc0a8f7-8d75-5b8c-af1c-35303ffba873",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "刘芳",
+      "relationship": "母亲，生活费",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R42",
+      "typical_min_minor": 80000,
+      "typical_max_minor": 80000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R43",
+      "id": "e5695173-15b8-512f-9564-f9a216001ec4",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "王雪",
+      "relationship": "妹妹，学习用品或红包",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R43",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 50000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R44",
+      "id": "3c6cc398-fbcb-5907-8094-b346735c4ec0",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "刘福生",
+      "relationship": "房东，月租",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R44",
+      "typical_min_minor": 120000,
+      "typical_max_minor": 120000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R45",
+      "id": "edc186e8-59e3-504c-b512-be44924a6b76",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "李强",
+      "relationship": "骑手朋友，临时借款",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R45",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 100000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R46",
+      "id": "841b7e8b-248c-5119-b058-2ce8b674b1ba",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "张鹏",
+      "relationship": "骑手朋友，餐费分摊",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R46",
+      "typical_min_minor": 3000,
+      "typical_max_minor": 10000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R47",
+      "id": "e061ff5e-8670-5a17-876a-0ebd22df20a6",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "陈涛",
+      "relationship": "同乡，往来还款",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R47",
+      "typical_min_minor": 30000,
+      "typical_max_minor": 80000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R48",
+      "id": "ff2b04fc-ca51-575c-a66b-860ae9b5f8b3",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "深圳顺骑租赁有限公司",
+      "relationship": "电动车租赁，虚构机构",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R48",
+      "typical_min_minor": 39900,
+      "typical_max_minor": 39900,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R49",
+      "id": "aa226158-6600-5830-b4aa-1e41f4e4f2c4",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "赵师傅",
+      "relationship": "维修服务",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R49",
+      "typical_min_minor": 5000,
+      "typical_max_minor": 30000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    },
+    {
+      "key": "R50",
+      "id": "792e3e72-b1c5-5f1d-929a-eabe6ef783a8",
+      "associated_user_key": "U05",
+      "owner_scope_key": "U05",
+      "display_name": "孙浩",
+      "relationship": "朋友，生日红包",
+      "destination_kind": "demo_external",
+      "synthetic_destination_ref": "DEMO-EXT-R50",
+      "typical_min_minor": 20000,
+      "typical_max_minor": 20000,
+      "amounts_are_authorization": false,
+      "fictional": true
+    }
+  ],
+  "product_references": [
+    {
+      "key": "P01",
+      "id": "905d6f6e-1503-5d6f-8e5a-a07bbc955f36",
+      "reference_name": "招商招钱宝货币A",
+      "reference_code": "000588",
+      "product_kind": "money_market_fund",
+      "source_url": "https://www.cmfchina.com/web/fundDetail/000588/",
+      "source_checked_date": "2026-10-14",
+      "reference_scope": "name_and_identity_only",
+      "execution_profile_status": "pending_source_review",
+      "is_live_offer": false,
+      "simulated_execution": true
+    },
+    {
+      "key": "P02",
+      "id": "24762688-57d1-5842-a50c-1733a1bab86b",
+      "reference_name": "天弘余额宝货币",
+      "reference_code": "000198",
+      "product_kind": "money_market_fund",
+      "source_url": "https://cdn-thweb.tianhongjijin.com.cn/fundnotice/02eae2effe192cc2b98dc83f76e0ac8b.pdf",
+      "source_checked_date": "2026-10-14",
+      "reference_scope": "name_and_identity_only",
+      "execution_profile_status": "pending_source_review",
+      "is_live_offer": false,
+      "simulated_execution": true
+    },
+    {
+      "key": "P03",
+      "id": "92ccccf9-b771-5060-9b8c-a7a86bcaa5c9",
+      "reference_name": "招银理财招睿日开一个月滚动持有固定收益类理财计划",
+      "reference_code": "110401",
+      "product_kind": "bank_wealth",
+      "source_url": "https://s3gw.cmbchina.com/lb52.71_user02_bucket02/ecs/CFP/FP/2022-10-26/1666815848018/63cda5ab-f519-4d66-ad78-d55a156108ef.pdf",
+      "source_checked_date": "2026-10-14",
+      "reference_scope": "name_and_identity_only",
+      "execution_profile_status": "pending_source_review",
+      "is_live_offer": false,
+      "simulated_execution": true
+    },
+    {
+      "key": "P04",
+      "id": "b66b986d-28d4-5c80-84f1-4a7d5e6add6f",
+      "reference_name": "招银理财招睿泓瑞全明星债基90天持有固定收益类理财计划",
+      "reference_code": "100763",
+      "product_kind": "bank_wealth",
+      "source_url": "https://cmbchina.com/cfweb/Personal/SAProductDetail.aspx?funcod=100763&saacod=D07&type=prodintro",
+      "source_checked_date": "2026-10-14",
+      "reference_scope": "name_and_identity_only",
+      "execution_profile_status": "pending_source_review",
+      "is_live_offer": false,
+      "simulated_execution": true
+    },
+    {
+      "key": "P05",
+      "id": "fe364c84-8ea8-5e50-83cd-3ed309711278",
+      "reference_name": "招银理财招睿量化稳健一年持有日开1号固收增强理财计划",
+      "reference_code": "508300",
+      "product_kind": "bank_wealth",
+      "source_url": "https://www.cmbchina.com/cfweb/Personal/saproductdetail.aspx?funCod=508300&saaCod=D07&type=prodvalue",
+      "source_checked_date": "2026-10-14",
+      "reference_scope": "name_and_identity_only",
+      "execution_profile_status": "pending_source_review",
+      "is_live_offer": false,
+      "simulated_execution": true
+    }
+  ],
+  "position_principal_targets": [
+    {
+      "owner_key": "U01",
+      "product_key": "P01",
+      "principal_minor": 300000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    },
+    {
+      "owner_key": "U02",
+      "product_key": "P01",
+      "principal_minor": 1000000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    },
+    {
+      "owner_key": "U02",
+      "product_key": "P04",
+      "principal_minor": 3000000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    },
+    {
+      "owner_key": "U03",
+      "product_key": "P03",
+      "principal_minor": 2000000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    },
+    {
+      "owner_key": "U04",
+      "product_key": "P05",
+      "principal_minor": 10000000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    },
+    {
+      "owner_key": "U05",
+      "product_key": "P02",
+      "principal_minor": 500000,
+      "units": null,
+      "valuation_minor": null,
+      "lot_rules_status": "pending_definition"
+    }
+  ],
+  "monthly_cashflow_targets": [
+    {
+      "owner_key": "U01",
+      "period": "2026-09",
+      "opening_minor": 1642042,
+      "labor_income_minor": 900000,
+      "other_inflow_minor": 75900,
+      "non_investment_outflow_minor": 633706,
+      "investment_purchase_minor": 100000,
+      "investment_redemption_minor": 0,
+      "closing_minor": 1884236
+    },
+    {
+      "owner_key": "U02",
+      "period": "2026-09",
+      "opening_minor": 9427070,
+      "labor_income_minor": 1630000,
+      "other_inflow_minor": 508900,
+      "non_investment_outflow_minor": 1181920,
+      "investment_purchase_minor": 500000,
+      "investment_redemption_minor": 0,
+      "closing_minor": 9884050
+    },
+    {
+      "owner_key": "U03",
+      "period": "2026-09",
+      "opening_minor": 3863474,
+      "labor_income_minor": 2050000,
+      "other_inflow_minor": 957900,
+      "non_investment_outflow_minor": 2038350,
+      "investment_purchase_minor": 200000,
+      "investment_redemption_minor": 100000,
+      "closing_minor": 4733024
+    },
+    {
+      "owner_key": "U04",
+      "period": "2026-09",
+      "opening_minor": 30460060,
+      "labor_income_minor": 3000000,
+      "other_inflow_minor": 488000,
+      "non_investment_outflow_minor": 2672980,
+      "investment_purchase_minor": 1000000,
+      "investment_redemption_minor": 0,
+      "closing_minor": 30275080
+    },
+    {
+      "owner_key": "U05",
+      "period": "2026-09",
+      "opening_minor": 3751618,
+      "labor_income_minor": 986000,
+      "other_inflow_minor": 5900,
+      "non_investment_outflow_minor": 657500,
+      "investment_purchase_minor": 50000,
+      "investment_redemption_minor": 0,
+      "closing_minor": 4036018
+    }
+  ],
+  "monthly_category_targets": {
+    "U01": {
+      "inflows": [
+        {
+          "category": "工资",
+          "amount_minor": 900000
+        },
+        {
+          "category": "报销",
+          "amount_minor": 60000
+        },
+        {
+          "category": "退款",
+          "amount_minor": 15900
+        }
+      ],
+      "outflows": [
+        {
+          "category": "房租",
+          "amount_minor": 240000
+        },
+        {
+          "category": "水电",
+          "amount_minor": 16840
+        },
+        {
+          "category": "餐饮",
+          "amount_minor": 138660
+        },
+        {
+          "category": "交通",
+          "amount_minor": 22680
+        },
+        {
+          "category": "超市",
+          "amount_minor": 42836
+        },
+        {
+          "category": "购物",
+          "amount_minor": 105890
+        },
+        {
+          "category": "手机费",
+          "amount_minor": 7900
+        },
+        {
+          "category": "给母亲生活费",
+          "amount_minor": 50000
+        },
+        {
+          "category": "聚餐分摊",
+          "amount_minor": 8900
+        }
+      ]
+    },
+    "U02": {
+      "inflows": [
+        {
+          "category": "工资",
+          "amount_minor": 1450000
+        },
+        {
+          "category": "绩效",
+          "amount_minor": 180000
+        },
+        {
+          "category": "丈夫家庭转入",
+          "amount_minor": 500000
+        },
+        {
+          "category": "退款",
+          "amount_minor": 8900
+        }
+      ],
+      "outflows": [
+        {
+          "category": "个人承担房租",
+          "amount_minor": 220000
+        },
+        {
+          "category": "水电燃气",
+          "amount_minor": 35620
+        },
+        {
+          "category": "餐饮买菜",
+          "amount_minor": 175040
+        },
+        {
+          "category": "婴儿用品",
+          "amount_minor": 156800
+        },
+        {
+          "category": "托育",
+          "amount_minor": 300000
+        },
+        {
+          "category": "给母亲带娃补贴",
+          "amount_minor": 180000
+        },
+        {
+          "category": "手机费",
+          "amount_minor": 9900
+        },
+        {
+          "category": "交通",
+          "amount_minor": 26060
+        },
+        {
+          "category": "同事分摊",
+          "amount_minor": 14680
+        },
+        {
+          "category": "医疗等其他",
+          "amount_minor": 63820
+        }
+      ]
+    },
+    "U03": {
+      "inflows": [
+        {
+          "category": "工资",
+          "amount_minor": 2050000
+        },
+        {
+          "category": "报销",
+          "amount_minor": 128000
+        },
+        {
+          "category": "妻子家庭转入",
+          "amount_minor": 800000
+        },
+        {
+          "category": "退款",
+          "amount_minor": 29900
+        }
+      ],
+      "outflows": [
+        {
+          "category": "房贷",
+          "amount_minor": 980000
+        },
+        {
+          "category": "车贷",
+          "amount_minor": 260000
+        },
+        {
+          "category": "餐饮买菜",
+          "amount_minor": 256800
+        },
+        {
+          "category": "水电物业",
+          "amount_minor": 48650
+        },
+        {
+          "category": "托管",
+          "amount_minor": 120000
+        },
+        {
+          "category": "保险",
+          "amount_minor": 68000
+        },
+        {
+          "category": "油费",
+          "amount_minor": 65000
+        },
+        {
+          "category": "通信",
+          "amount_minor": 12900
+        },
+        {
+          "category": "父母生活费",
+          "amount_minor": 100000
+        },
+        {
+          "category": "购物",
+          "amount_minor": 127000
+        }
+      ]
+    },
+    "U04": {
+      "inflows": [
+        {
+          "category": "公司薪酬",
+          "amount_minor": 3000000
+        },
+        {
+          "category": "报销",
+          "amount_minor": 420000
+        },
+        {
+          "category": "退款",
+          "amount_minor": 68000
+        }
+      ],
+      "outflows": [
+        {
+          "category": "给妻子家庭开支",
+          "amount_minor": 1200000
+        },
+        {
+          "category": "孩子教育",
+          "amount_minor": 480000
+        },
+        {
+          "category": "汽车使用",
+          "amount_minor": 160000
+        },
+        {
+          "category": "餐饮",
+          "amount_minor": 230080
+        },
+        {
+          "category": "通信",
+          "amount_minor": 19900
+        },
+        {
+          "category": "医疗",
+          "amount_minor": 65000
+        },
+        {
+          "category": "礼金",
+          "amount_minor": 200000
+        },
+        {
+          "category": "购物",
+          "amount_minor": 318000
+        }
+      ]
+    },
+    "U05": {
+      "inflows": [
+        {
+          "category": "配送结算1",
+          "amount_minor": 310000
+        },
+        {
+          "category": "配送结算2",
+          "amount_minor": 285000
+        },
+        {
+          "category": "配送结算3",
+          "amount_minor": 325000
+        },
+        {
+          "category": "奖励",
+          "amount_minor": 48000
+        },
+        {
+          "category": "小费",
+          "amount_minor": 18000
+        },
+        {
+          "category": "退款",
+          "amount_minor": 5900
+        }
+      ],
+      "outflows": [
+        {
+          "category": "房租",
+          "amount_minor": 120000
+        },
+        {
+          "category": "餐饮",
+          "amount_minor": 168050
+        },
+        {
+          "category": "电动车租赁",
+          "amount_minor": 39900
+        },
+        {
+          "category": "充电",
+          "amount_minor": 16820
+        },
+        {
+          "category": "维修",
+          "amount_minor": 28600
+        },
+        {
+          "category": "通信",
+          "amount_minor": 9900
+        },
+        {
+          "category": "保险",
+          "amount_minor": 12800
+        },
+        {
+          "category": "给父母生活费",
+          "amount_minor": 200000
+        },
+        {
+          "category": "日用品",
+          "amount_minor": 28630
+        },
+        {
+          "category": "社交",
+          "amount_minor": 32800
+        }
+      ]
+    }
+  },
+  "personal_loan_targets": [
+    {
+      "key": "U03-L01",
+      "owner_key": "U03",
+      "kind": "mortgage",
+      "outstanding_minor": 190000000,
+      "monthly_payment_minor": 980000,
+      "due_day": 15,
+      "amortization_status": "pending_contract_definition"
+    },
+    {
+      "key": "U03-L02",
+      "owner_key": "U03",
+      "kind": "car_loan",
+      "outstanding_minor": 7800000,
+      "monthly_payment_minor": 260000,
+      "due_day": 20,
+      "amortization_status": "pending_contract_definition"
+    }
+  ],
+  "business_background": {
+    "key": "ORG01",
+    "id": "64768e08-83c8-50ab-8bf7-1260d40689fc",
+    "name": "深圳雾芯电子制造有限公司",
+    "fictional": true,
+    "associated_user_key": "U04",
+    "employee_count": 100,
+    "factory_area_sqm": 3000,
+    "factory_ownership": "leased",
+    "account": {
+      "key": "ORG01-A01",
+      "id": "23093020-64dc-573f-8d88-b40902be4b31",
+      "bank_display_name": "工商银行",
+      "synthetic_account_ref": "DEMO-ORG01-A01",
+      "posted_minor": 85000000
+    },
+    "loan": {
+      "outstanding_principal_minor": 300000000,
+      "annual_rate_decimal": "0.05",
+      "repayment_model": "monthly_interest_bullet_principal",
+      "monthly_interest_minor": 1250000,
+      "contract_status": "maturity_and_dates_pending"
+    },
+    "monthly_summary": {
+      "period": "2026-09",
+      "opening_minor": 70870000,
+      "customer_receipts_minor": 175000000,
+      "outflows": [
+        {
+          "category": "工人工资100笔",
+          "amount_minor": 52000000
+        },
+        {
+          "category": "老板个人薪酬",
+          "amount_minor": 3000000
+        },
+        {
+          "category": "企业社保等",
+          "amount_minor": 9500000
+        },
+        {
+          "category": "厂房租金",
+          "amount_minor": 6000000
+        },
+        {
+          "category": "水电",
+          "amount_minor": 3850000
+        },
+        {
+          "category": "材料",
+          "amount_minor": 68000000
+        },
+        {
+          "category": "物流",
+          "amount_minor": 4500000
+        },
+        {
+          "category": "设备",
+          "amount_minor": 5000000
+        },
+        {
+          "category": "贷款利息",
+          "amount_minor": 1250000
+        },
+        {
+          "category": "税费",
+          "amount_minor": 4800000
+        },
+        {
+          "category": "报销及其他，含老板报销4200",
+          "amount_minor": 2970000
+        }
+      ],
+      "closing_minor": 85000000
+    },
+    "execution_enabled": false,
+    "corporate_schema_status": "requires_explicit_extension",
+    "employee_roster_status": "100_rows_not_yet_generated"
+  },
+  "persona_memory_source": [
+    {
+      "key": "F01",
+      "owner_key": "U01",
+      "text": "每月5日交房租2400元",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F02",
+      "owner_key": "U01",
+      "text": "母亲生日11月18日，年份未知",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F03",
+      "owner_key": "U01",
+      "text": "工资到账后通常先留备用金",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F04",
+      "owner_key": "U02",
+      "text": "女儿出生于2025-08-20",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F05",
+      "owner_key": "U02",
+      "text": "每月托育费3000元，母亲协助带娃",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F06",
+      "owner_key": "U03",
+      "text": "房贷15日扣款，车贷20日扣款",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F07",
+      "owner_key": "U03",
+      "text": "希望还款卡至少保留15000元",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F08",
+      "owner_key": "U03",
+      "text": "孩子每月托管费1200元",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F09",
+      "owner_key": "U04",
+      "text": "企业每月10日发工资，月底付租金和贷款利息",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F10",
+      "owner_key": "U04",
+      "text": "个人与企业资金分开",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F11",
+      "owner_key": "U05",
+      "text": "每月5日交房租，8日付电动车租金",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F12",
+      "owner_key": "U05",
+      "text": "月底给父母2000元",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    },
+    {
+      "key": "F13",
+      "owner_key": "U05",
+      "text": "希望保留5000元生活备用金",
+      "source_kind": "demo_persona_fixture",
+      "source_version": "SZ-DEMO-1.0",
+      "runtime_state": "not_loaded",
+      "grants_payment_authorization": false
+    }
+  ],
+  "transaction_rows_status": "not_generated",
+  "login_credentials_status": "not_generated",
+  "biometric_data_status": "none",
+  "automatic_payment_authorizations": [],
+  "future_modules": [
+    "dynamic_memory",
+    "profile",
+    "user_rules",
+    "fraud_signals",
+    "ocr_ingestion",
+    "face_1to1",
+    "knowledge_retrieval"
+  ]
+}

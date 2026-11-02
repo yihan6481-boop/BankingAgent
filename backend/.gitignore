@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.env
+.env.*
+.venv/
+*.tmp
+*.temp
+*.log
+*.zip
+
+# 最近一次 evaluator 状态和 smoke 运行不是正式 Baseline。
+evaluation/evaluation_report.json
+evaluation/runs/*
+!evaluation/runs/baseline_0.json
+!evaluation/runs/baseline_0_analysis.json
+!evaluation/runs/baseline_0_analysis.md
+!evaluation/runs/baseline_1.json
+!evaluation/runs/baseline_1_analysis.json
+!evaluation/runs/baseline_1_analysis.md

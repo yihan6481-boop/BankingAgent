@@ -1,0 +1,75 @@
+# Replace BOTH example.invalid names and supply their certificates; no wildcard.
+log_format banking_safe '$remote_addr $request_method $status $body_bytes_sent $request_time';
+map $http_upgrade $bank_upgrade { default upgrade; '' close; }
+upstream bank_app { server bank:8039; }
+upstream sms_app { server sms:8040; }
+server { listen 80 default_server; server_name _; return 444; }
+server {
+    listen 80;
+    server_name bank.example.invalid sms.example.invalid;
+    return 308 https://$host$request_uri;
+}
+server {
+    listen 443 ssl default_server;
+    server_name _;
+    ssl_reject_handshake on;
+}
+server {
+    listen 443 ssl;
+    server_name bank.example.invalid;
+    ssl_certificate /etc/nginx/tls/bank/fullchain.pem;
+    ssl_certificate_key /etc/nginx/tls/bank/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    client_max_body_size 12m;
+    access_log /var/log/nginx/access.log banking_safe;
+    error_log /var/log/nginx/error.log crit;
+    add_header Strict-Transport-Security 'max-age=31536000' always;
+    add_header X-Content-Type-Options nosniff always;
+    location /internal/ { return 404; }
+    location /docs { return 404; }
+    location /openapi.json { return 404; }
+    location /health/ready { return 404; }
+    location /health/live { return 404; }
+    location / {
+        proxy_pass http://bank_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Forwarded '';
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $bank_upgrade;
+        proxy_connect_timeout 10s;
+        proxy_read_timeout 360s;
+        proxy_send_timeout 360s;
+        proxy_buffering off;
+        proxy_request_buffering off;
+        proxy_cache off;
+        proxy_next_upstream off;
+        gzip off;
+        add_header X-Accel-Buffering no always;
+    }
+}
+server {
+    listen 443 ssl;
+    server_name sms.example.invalid;
+    ssl_certificate /etc/nginx/tls/sms/fullchain.pem;
+    ssl_certificate_key /etc/nginx/tls/sms/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    client_max_body_size 8k;
+    access_log /var/log/nginx/access.log banking_safe;
+    error_log /var/log/nginx/error.log crit;
+    add_header Strict-Transport-Security 'max-age=31536000' always;
+    location / {
+        proxy_pass http://sms_app;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Forwarded '';
+        proxy_set_header Connection '';
+        proxy_read_timeout 30s;
+        proxy_buffering off;
+        proxy_next_upstream off;
+    }
+}

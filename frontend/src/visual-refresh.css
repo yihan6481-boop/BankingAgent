@@ -1,0 +1,161 @@
+/* Main customer app only. Viewport rectangles, collapse slots, input lifecycle,
+   and the protected next-mobile.css geometry retain their original ownership. */
+.visual-refresh{--mobile-ink:#243248;--mobile-muted:#6b788a;--mobile-line:#e9edf2;--mobile-blue:#426aaa;--mobile-bg:#f7f8fa;--surface:#fff;color:var(--mobile-ink);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.6;background:var(--mobile-bg)}
+.visual-refresh .mobile-shell,.visual-refresh .mobile-screen{background:var(--mobile-bg)}
+.visual-refresh .mobile-app-header{background:var(--mobile-bg);border-color:var(--mobile-line)}
+.visual-refresh .mobile-header-start{min-width:0}
+.visual-refresh .mobile-brand-text{min-width:0;overflow-wrap:anywhere}
+.visual-refresh .assistant-topbar{background:var(--mobile-bg);border-bottom:1px solid var(--mobile-line);padding-left:12px;padding-right:12px}
+.visual-refresh .assistant-title{flex:1;min-width:0;gap:7px;justify-content:center}
+.visual-refresh .assistant-title strong{font-size:17px;white-space:nowrap}
+.visual-refresh .assistant-topbar-actions{display:flex;align-items:center}
+.visual-refresh .mobile-icon-button,.visual-refresh .plain-icon{width:44px;min-width:44px;min-height:44px;color:var(--mobile-ink)}
+.visual-refresh .modern-chat-feed{background:var(--mobile-bg)}
+.visual-refresh .assistant-landing{padding-top:24px}
+.visual-refresh .assistant-greeting{padding:8px 0 20px}
+.visual-refresh .assistant-greeting h1{font-size:24px;line-height:1.45}
+.visual-refresh .assistant-greeting p{font-size:16px}
+.visual-refresh .assistant-shortcuts{gap:8px;margin:4px 0 24px;padding:0}
+.visual-refresh .assistant-shortcuts button{background:#fff;border:1px solid var(--mobile-line);border-radius:16px;font-size:14px;padding:12px 2px;gap:8px;min-height:84px}
+.visual-refresh .suggestion-card h2{font-size:16px;color:var(--mobile-muted)}
+.visual-refresh .suggestion-card button{background:none;color:#526681;font-size:16px;line-height:1.6}
+.visual-refresh .modern-composer{background:var(--mobile-bg);border-color:var(--mobile-line)}
+.visual-refresh .compose-row{background:#fff;border:1px solid #dde4ee;border-radius:20px;gap:2px;padding:4px}
+.visual-refresh .compose-row button{width:44px;min-width:44px;height:44px;min-height:44px;border-radius:14px}
+.visual-refresh .compose-row input{padding:6px 3px;color:var(--mobile-ink);font-size:16px}
+.visual-refresh .compose-row button.send-message{background:var(--mobile-blue)!important;color:#fff}
+.visual-refresh .compose-row .hold-to-talk{width:auto;min-width:0;font-size:14px}
+.visual-refresh .chat-user-bubble{background:#476eaf;border-radius:18px;color:#fff;font-size:16px;line-height:1.6}
+.visual-refresh .chat-agent-message{max-width:100%;width:100%}
+.visual-refresh .chat-assistant-bubble{background:transparent;border:0;border-radius:0;padding:8px 0;color:var(--mobile-ink);font-size:16px;line-height:1.65;box-shadow:none}
+.visual-refresh .chat-assistant-bubble.chat-answer-error{color:#963c3c}
+.visual-refresh .safe-markdown p{line-height:1.65;margin:0 0 9px}
+.visual-refresh .chat-result-details{display:grid;gap:12px;margin:4px 0 12px;color:var(--mobile-ink)}
+.visual-refresh .chat-result-details>.rounded-2xl,.visual-refresh .chat-result-details>section{background:#fff;border:1px solid var(--mobile-line);border-radius:16px;box-shadow:none}
+.visual-refresh .chat-result-details .text-2xl{font-size:28px;font-weight:600;color:var(--mobile-ink);overflow-wrap:anywhere}
+.visual-refresh .chat-result-details .text-sm{font-size:16px;line-height:1.6}
+.visual-refresh [data-query-kind=summary]>dl>div{display:block;padding:5px 0}
+.visual-refresh [data-query-kind=summary]>dl dd{font-size:28px;font-weight:600;text-align:left;line-height:1.4;overflow-wrap:anywhere;color:var(--mobile-ink)}
+.visual-refresh .conversation-result-tools{margin:8px 0 12px;color:var(--mobile-muted);font-size:13px;border-top:1px solid var(--mobile-line)}
+.visual-refresh .conversation-result-tools p{margin:0 0 8px}
+.visual-refresh .conversation-result-tools button{margin:0 6px 8px 0}
+.visual-refresh summary{min-height:44px;cursor:pointer;line-height:1.6;overflow-wrap:anywhere}
+.visual-refresh .active-task-strip{border:1px solid var(--mobile-line);border-radius:12px;background:#edf1f6;font-size:14px}
+.visual-refresh .chat-task-content{background:#fff;border-radius:16px;border:1px solid var(--mobile-line);padding:12px}
+.visual-refresh .task-state-actions{display:flex;gap:8px;flex-wrap:wrap;padding-top:12px}
+.visual-refresh .primary,.visual-refresh .mobile-primary{background:var(--mobile-blue);border-radius:12px;min-height:44px;font-size:16px;box-shadow:none;white-space:normal}
+.visual-refresh .secondary,.visual-refresh .mobile-secondary{background:#fff;border:1px solid #dce3ee;border-radius:12px;min-height:44px;font-size:14px;color:#42638d;white-space:normal}
+.visual-refresh .field{min-width:0;max-width:100%;min-height:46px;border-radius:11px;border-color:#dfe5ee;font-size:16px;color:var(--mobile-ink);background:#fff}
+.visual-refresh .text-button{min-height:44px;font-size:14px}
+.visual-refresh .mobile-page{padding:20px 16px 24px;font-size:16px}
+.visual-refresh .mobile-page button{min-height:44px;min-width:44px}
+.visual-refresh .mobile-screen>.p-4{font-size:16px;line-height:1.6}
+.visual-refresh .mobile-screen>.p-4 .text-xs{font-size:13px;line-height:1.6}
+.visual-refresh .mobile-page h1{font-size:22px;line-height:1.45;color:var(--mobile-ink)}
+.visual-refresh .mobile-page h2{font-size:17px;line-height:1.5}
+.visual-refresh .mobile-page h3{font-size:16px;line-height:1.5}
+.visual-refresh .mobile-page .text-xs,.visual-refresh .mobile-page .text-\[11px\],.visual-refresh .chat-agent-message .text-xs,.visual-refresh .chat-agent-message .text-\[11px\]{font-size:13px;line-height:1.6}
+.visual-refresh .mobile-page .text-sm{font-size:16px;line-height:1.6}
+.visual-refresh .mobile-footnote,.visual-refresh .field-note,.visual-refresh .muted-copy{font-size:13px;line-height:1.65;color:var(--mobile-muted)}
+.visual-refresh .white-tile,.visual-refresh .account-overview,.visual-refresh .transfer-card,.visual-refresh .security-card,.visual-refresh .product-card,.visual-refresh .payment-panel,.visual-refresh .payment-action-card{background:#fff;border:1px solid var(--mobile-line);border-radius:16px;box-shadow:none;padding:16px}
+.visual-refresh .transfer-card,.visual-refresh .security-card,.visual-refresh .product-card,.visual-refresh .payment-panel{margin-bottom:16px}
+.visual-refresh .profile-hero{padding:0 0 20px;gap:10px}
+.visual-refresh .profile-hero>strong{font-size:20px;overflow-wrap:anywhere}
+.visual-refresh .profile-avatar{width:44px;height:44px;flex-shrink:0;background:#e8eef7;color:#607ea7}
+.visual-refresh .overview-title{gap:10px}
+.visual-refresh .account-overview>p{color:var(--mobile-muted);font-size:13px}
+.visual-refresh .account-total{font-size:29px;line-height:1.4;overflow-wrap:anywhere;margin:10px 0 14px;font-variant-numeric:tabular-nums}
+.visual-refresh .snapshot-time{font-size:12px!important;line-height:1.6}
+.visual-refresh .my-cards button{gap:10px;min-height:72px}
+.visual-refresh .my-cards button>span:nth-child(2){min-width:0;flex:1}
+.visual-refresh .my-cards strong{font-size:16px;white-space:normal}
+.visual-refresh .my-cards small{font-size:13px;overflow-wrap:anywhere}
+.visual-refresh .mini-bank-card{flex-shrink:0;border-radius:12px}
+.visual-refresh .profile-income{background:#fff;border:1px solid var(--mobile-line);border-radius:16px;padding:16px;margin:16px 0}
+.visual-refresh .profile-income>span:nth-child(2){min-width:0}
+.visual-refresh .profile-income small{font-size:13px;line-height:1.6}
+.visual-refresh .profile-menu{background:#fff;border:1px solid var(--mobile-line);border-radius:16px;padding:0 16px}
+.visual-refresh .profile-menu button{min-height:76px;padding:12px 0}
+.visual-refresh .profile-menu button:last-child{border-bottom:0}
+.visual-refresh .profile-menu-text strong{font-size:16px}
+.visual-refresh .profile-menu-text{min-width:0}
+.visual-refresh .profile-menu-icon{color:#607ea7;flex-shrink:0}
+.visual-refresh .logout-button{border:1px solid var(--mobile-line);border-radius:12px;min-height:46px;background:#fff;color:#963c3c;margin-top:20px}
+.visual-refresh .services-sheet{padding:16px 16px calc(env(safe-area-inset-bottom) + 20px);border-radius:22px 22px 0 0}
+.visual-refresh .service-group{margin:16px 0 20px}
+.visual-refresh .service-group h3{font-size:16px;color:var(--mobile-ink);margin:0 0 12px}
+.visual-refresh .service-group>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 4px;background:transparent;border-radius:0;padding:0}
+.visual-refresh .service-group button{display:flex;flex-direction:column;gap:7px;padding:8px 2px;min-height:90px;min-width:0;border:0;border-radius:12px;text-align:center}
+.visual-refresh .service-icon{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:13px;background:#eff3f9;color:#5d7da9;flex-shrink:0}
+.visual-refresh .service-group button strong{font-size:13px;line-height:1.5;white-space:normal}
+.visual-refresh .service-group button small{font-size:12px;line-height:1.5;color:var(--mobile-muted)}
+.visual-refresh .service-group button>svg{display:none}
+.visual-refresh .attachment-option{min-height:92px;border:1px solid var(--mobile-line);background:#f7f8fa;border-radius:16px;padding:14px;margin:12px 0}
+.visual-refresh .attachment-option small{font-size:13px;line-height:1.6}
+.visual-refresh .mobile-drawer{background:var(--mobile-bg)}
+.visual-refresh .session-button{border:1px solid var(--mobile-line);border-radius:14px;background:#fff;margin:10px 0;padding:12px;min-height:64px}
+.visual-refresh .session-button.selected{border-color:#92aacc;background:#eff3f9}
+.visual-refresh .drawer-section-label{font-size:14px;color:var(--mobile-muted);margin:24px 0 10px}
+.visual-refresh .drawer-top strong{font-size:20px}
+.visual-refresh .detail-dialog{border:1px solid var(--mobile-line);border-radius:20px 20px 0 0;padding:24px 16px;box-shadow:none}
+.visual-refresh .detail-dialog h2{font-size:20px;margin-right:32px;overflow-wrap:anywhere}
+.visual-refresh .detail-dialog p,.visual-refresh .detail-dialog label{font-size:14px;line-height:1.65}
+.visual-refresh .detail-dialog dl{font-size:14px;gap:12px}
+.visual-refresh .dialog-close{min-width:44px;min-height:44px}
+.visual-refresh .detail-balance{font-size:29px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.visual-refresh .segment-control,.visual-refresh .payment-tabs,.visual-refresh .catalog-filters{background:#eaf0f6;border-radius:11px;padding:4px;gap:3px}
+.visual-refresh .segment-control button,.visual-refresh .payment-tabs button,.visual-refresh .catalog-filters button{min-height:44px;font-size:13px;border-radius:8px}
+.visual-refresh .transfer-intro h1,.visual-refresh .product-hero h1,.visual-refresh .security-hero h1{font-size:22px}
+.visual-refresh .product-hero{padding:8px 0 20px}
+.visual-refresh .product-hero>span{font-size:13px;color:var(--mobile-muted)}
+.visual-refresh .product-facts strong{font-size:28px;color:#42638d;overflow-wrap:anywhere}
+.visual-refresh .product-facts small,.visual-refresh .product-category{font-size:13px;line-height:1.6}
+.visual-refresh .product-facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.visual-refresh .product-actions{flex-wrap:wrap;gap:8px}
+.visual-refresh .product-actions label{font-size:14px;min-height:44px}
+.visual-refresh .product-actions button{font-size:14px;min-height:44px}
+.visual-refresh .compare-table table,.visual-refresh .compare-table thead,.visual-refresh .compare-table tbody,.visual-refresh .compare-table tr,.visual-refresh .compare-table td{display:block;min-width:0;width:100%}
+.visual-refresh .compare-table thead{display:none}
+.visual-refresh .compare-table tr{padding:12px;border:1px solid var(--mobile-line);border-radius:12px;margin:12px 0;background:#f7f8fa}
+.visual-refresh .compare-table td{font-size:14px;padding:5px 0;border:0;overflow-wrap:anywhere}
+.visual-refresh .compare-table td:first-child{font-size:16px;font-weight:600}
+.visual-refresh .holding-row p,.visual-refresh .holding-row small{font-size:13px;line-height:1.6}
+.visual-refresh .holding-row strong{font-size:16px;overflow-wrap:anywhere}
+.visual-refresh .filter-tile{flex-wrap:wrap;gap:12px}
+.visual-refresh .filter-tile input{min-width:0;max-width:100%;font-size:16px;min-height:44px}
+.visual-refresh .summary-tiles{grid-template-columns:minmax(0,1fr);gap:12px}
+.visual-refresh .summary-tiles strong{font-size:28px;line-height:1.4;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.visual-refresh .summary-tiles span{font-size:13px}
+.visual-refresh .bill-action-list button{font-size:15px;min-height:52px}
+.visual-refresh .payment-panel label{font-size:14px;line-height:1.6}
+.visual-refresh .payment-panel .field{margin-top:6px}
+.visual-refresh .payment-panel img{max-width:100%;border-radius:12px}
+.visual-refresh .payment-amount dd{font-size:29px;line-height:1.4;overflow-wrap:anywhere}
+.visual-refresh .risk-reasons li{background:#faf2e5;color:#805f33;font-size:14px;border-radius:12px}
+.visual-refresh .risk-reasons small,.visual-refresh .risk-disclaimer,.visual-refresh .risk-coverage,.visual-refresh .sheet-footnote{font-size:13px;line-height:1.6}
+.visual-refresh .fault-notice,.visual-refresh .task-notice,.visual-refresh .subscription-authorization{border:1px solid var(--mobile-line);background:#edf1f6;border-radius:12px;font-size:14px;line-height:1.65}
+.visual-refresh .subscription-authorization p,.visual-refresh .subscription-authorization li strong{font-size:13px}
+.visual-refresh .tasks-page>button{border-radius:16px;border-color:var(--mobile-line);padding:16px;background:#fff}
+.visual-refresh .task-filters{display:flex;flex-wrap:wrap;gap:8px}
+.visual-refresh .task-filters button[aria-pressed=true]{background:#e8eef7;border-color:#92aacc;color:#375c91}
+.visual-refresh .dialogue-state-group{margin:16px 0}
+.visual-refresh .dialogue-state-group h3{margin:0 0 10px;font-size:16px}
+.visual-refresh .dialogue-state-group .task-notice{padding:16px;margin-bottom:12px;background:#fff}
+.visual-refresh .memory-page>section,.visual-refresh .memory-page>details{border-radius:16px;border-color:var(--mobile-line);box-shadow:none}
+.visual-refresh .memory-page label{min-height:44px;padding-top:8px;padding-bottom:8px}
+.visual-refresh .current-conversation-drafts{border-top:1px solid var(--mobile-line);margin:0 16px 20px;padding:8px 0}
+.visual-refresh .current-conversation-drafts>summary{font-size:16px;color:#526681}
+.visual-refresh .support-status{padding:20px 0 12px}
+.visual-refresh .support-pause{background:#edf1f6;font-size:13px}
+.visual-refresh .support-messages{border-radius:16px;background:#fff;border:1px solid var(--mobile-line)}
+.visual-refresh .mobile-auth form{border-radius:16px;border-color:var(--mobile-line)}
+.visual-refresh .auth-hero h1{font-size:24px}
+@media(max-width:370px){
+  .visual-refresh .assistant-title{gap:4px}
+  .visual-refresh .assistant-title .brand-mark{display:none}
+  .visual-refresh .assistant-title strong{font-size:16px}
+  .visual-refresh .profile-hero{gap:6px}
+  .visual-refresh .profile-hero>strong{font-size:18px}
+  .visual-refresh .profile-income small{font-size:13px}
+  .visual-refresh .service-group button small{font-size:12px}
+}

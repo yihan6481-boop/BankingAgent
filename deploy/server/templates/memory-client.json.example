@@ -1,0 +1,5 @@
+{
+  "url": "http://memory:18889",
+  "internal_http_service": "memory:18889",
+  "token": "<COPY_EXISTING_MEMORY_TENANT_TOKEN>"
+}

@@ -1,0 +1,13 @@
+{
+  "profile": "runtime",
+  "batch_id": "banking-runtime",
+  "ledger": "~/.banking-agent/runtime_usage.json",
+  "max_requests": 5000,
+  "max_tokens": 400000000,
+  "note": "聊天/主模型的有限付费调用预算：先预留再调用，耗尽明确拒绝，不重置旧账本、不切换账本。每账号每日200条消息额度是独立层，不能换算成付费预算。",
+  "limits_are_cumulative": true,
+  "ledger_reset": "never applied automatically; an operator may raise limits only after review, keeping all previous usage",
+  "daily_message_quota": "separate contract: 200 new user messages per account per Asia/Shanghai day",
+  "scope": "shared cumulative cap for the local deployment runtime ledger; NOT a per-person daily budget, NOT a monetary budget and NOT a paid-call authorization",
+  "not_authorization": true
+}

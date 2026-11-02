@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "package_id": "final5-memoryfix1-slim-20261102",
+  "created_date": "2026-11-02",
+  "previous_package_sha256": "982f2a6b037a261d98d49cd2db237e32a699e0d6f01e8791fa43db3b79c7f664",
+  "original_source_archive_sha256": "dff8648880cd10a80abfc9aac9bbbd10220b8c16cac7eb137c5aa4d1a0902ab2",
+  "source_artifact_build": "c46116d7118a4037efe6f1ae13ee2fcff0785a1ca8fca31a9b7b0c2cae7c6049",
+  "removed_files_since_previous_clean_package": 517,
+  "retained_business_runtime_files_modified": false,
+  "frontend_runtime_source_modified": false,
+  "frontend_mock_fixture_removed": true,
+  "sql_migrations_modified": false,
+  "lockfiles_modified": false,
+  "launch_tool_changes": [
+    "Remove old test runner from final_pg",
+    "Keep only formal runtime mode in native gateway launchers",
+    "Remove initialization evidence file output; keep data validation"
+  ],
+  "tests_included": false,
+  "historical_evidence_included": false,
+  "complete_business_rerun": false,
+  "production_deployment_performed": false
+}

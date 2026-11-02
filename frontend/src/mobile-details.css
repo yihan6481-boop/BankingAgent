@@ -1,0 +1,9 @@
+.text-button{border:0;background:none;color:#347ce7;font-size:12px;padding:4px 0}
+.contact-book label{display:block;margin:14px 0;font-size:13px;color:#7b8ba4}.contact-book .field{margin-top:7px}
+.activity-row,.demo-events>div{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eef2fa;font-size:13px}.activity-row small,.demo-events small{display:block;color:#91a0b8;font-size:11px;margin-top:5px}.activity-row strong,.demo-events strong{font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}.card-activity{margin-top:20px}.demo-ledger{margin-top:15px}.demo-ledger summary{font-size:13px;color:#768aab;cursor:pointer}.demo-events{max-height:360px;overflow:auto}.demo-events>div{font-size:12px}
+.holdings-panel summary{font-size:15px;color:#4e6a96;cursor:pointer}.holding-row{padding:15px 0;border-bottom:1px solid #edf1f8}.holding-row>strong{font-size:14px;font-weight:550}.holding-row p{font-size:13px;color:#607ca5;margin:8px 0}.holding-row small{font-size:10px;color:#98a4b8;line-height:1.6}.holding-row button{margin-top:8px;display:block}.holdings-panel h3{margin-top:22px;color:#8090a8;font-size:13px}
+.receipt-detail{margin:18px 0;padding:16px;background:#f5f9ff;border-radius:13px}.receipt-detail strong{font-size:14px;color:#3c7197}
+.drawer-section-label{font-size:12px;color:#92a1b8;margin:20px 0 10px}
+.service-group button strong{font-size:15px}.support-page>.full-width{margin:8px 0}
+.product-list,.transfer-card,.security-card{animation:none}
+@media(max-width:370px){.profile-hero>.plain-icon{width:31px}.account-total{font-size:28px}.profile-income small{font-size:11px}}

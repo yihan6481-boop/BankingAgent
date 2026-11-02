@@ -1,0 +1,9 @@
+import { useRef,useState } from 'react'
+export function GesturePad({onChange,disabled=false,label='交易手势'}:{onChange:(v:string)=>void;disabled?:boolean;label?:string}){
+ const [nodes,setNodes]=useState<number[]>([]),drawing=useRef(false),current=useRef<number[]>([])
+ const add=(n:number)=>{if(!current.current.includes(n)){current.current=[...current.current,n];setNodes(current.current);onChange(current.current.join(''))}}
+ const move=(e:React.PointerEvent<HTMLDivElement>)=>{if(!drawing.current||disabled)return;const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*240,y=(e.clientY-r.top)/r.height*240;for(let n=1;n<=9;n++){const nx=40+(n-1)%3*80,ny=40+Math.floor((n-1)/3)*80;if(Math.hypot(nx-x,ny-y)<23)add(n)}}
+ return <div className="gesture-control"><div className="gesture-pad" role="group" aria-label={label} onPointerDown={e=>{if(disabled)return;current.current=[];setNodes([]);drawing.current=true;e.currentTarget.setPointerCapture(e.pointerId);move(e)}} onPointerMove={move} onPointerUp={()=>{drawing.current=false}} onPointerCancel={()=>{drawing.current=false;current.current=[];setNodes([]);onChange('')}}>
+ <svg viewBox="0 0 240 240" aria-hidden="true"><polyline points={nodes.map(n=>`${40+(n-1)%3*80},${40+Math.floor((n-1)/3)*80}`).join(' ')} fill="none" stroke="#5e9aff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>{Array.from({length:9},(_,i)=><circle key={i} cx={40+i%3*80} cy={40+Math.floor(i/3)*80} r={nodes.includes(i+1)?12:8} fill={nodes.includes(i+1)?'#176eff':'#c5d3eb'}/>)}</svg>
+ <div className="gesture-keyboard">{Array.from({length:9},(_,i)=><button type="button" key={i} aria-label={`手势节点${i+1}`} disabled={disabled} onClick={()=>add(i+1)} />)}</div></div><button className="secondary" type="button" onClick={()=>{current.current=[];setNodes([]);onChange('')}}>重新绘制</button><small>至少连接4个不同的节点</small></div>
+}
