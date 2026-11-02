@@ -27,13 +27,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 12843,
-      "sha256": "966ae637f6db877916d2a4e1436ce71bc49eb4a8ca2af24c476b4891b848ea6c"
+      "bytes": 15290,
+      "sha256": "0bcbbb94e4b9aa08e95baa7ad13012d88a3c1b9fced55b91e7bea103168a423c"
     },
     {
       "path": "SERVER_VERSION.json",
-      "bytes": 10597,
-      "sha256": "0283b33a3e6f2174ec14f1321a3a368131d3fcf90c85b9d04cff3464b7b5afaa"
+      "bytes": 11342,
+      "sha256": "402ac12766371805fc3b31983fb62bed0bb6ac7a8979cd535616e3b20d2b8bd1"
     },
     {
       "path": "SOURCE_PACKAGE.json",
@@ -842,8 +842,8 @@
     },
     {
       "path": "backend/security/payment_auth.py",
-      "bytes": 19591,
-      "sha256": "024de2063eb4a7d852c425350d7cc7a3acbc2a5a07fd8fca6360623761e261ed"
+      "bytes": 19714,
+      "sha256": "d15509b90a95d78efe576e816e9646fddd0eeac95f14b3fc56d0fd48edd33533"
     },
     {
       "path": "backend/security/policy.py",
@@ -874,6 +874,11 @@
       "path": "backend/security/service.py",
       "bytes": 3469,
       "sha256": "3fccc1aea2c3e0ac8e1a2773677e7b0490bb42630c359ef79396a1187015e1d0"
+    },
+    {
+      "path": "backend/security/sms_mailbox.py",
+      "bytes": 638,
+      "sha256": "a0181a2944890c779a1abc4801b44429a78aa0de5cd266effaa386e74b230c65"
     },
     {
       "path": "backend/security/strong_auth.py",
@@ -1197,8 +1202,8 @@
     },
     {
       "path": "deploy/server/README.md",
-      "bytes": 4051,
-      "sha256": "b305adc0e54071d942cda78fb97d406e17b8bd1b61e8d5a3d999b0a2c80abd1d"
+      "bytes": 4072,
+      "sha256": "7923ec8786cb3acb0718d32f6141684678ba6bc08bcaf74047823998858d027c"
     },
     {
       "path": "deploy/server/__init__.py",
@@ -1227,8 +1232,8 @@
     },
     {
       "path": "deploy/server/health.py",
-      "bytes": 1230,
-      "sha256": "070fd2c0b6151ce329d775f90a4f757eada253e036c496446550b3049f994ae9"
+      "bytes": 1162,
+      "sha256": "88f0cf1e050cba85ff88f3fc4b31db2d2ee7124698da5ada2d6c5a4fc1e69cff"
     },
     {
       "path": "deploy/server/maintenance.compose.yaml",
@@ -1252,13 +1257,13 @@
     },
     {
       "path": "deploy/server/receiver_issue.py",
-      "bytes": 4015,
-      "sha256": "09652f47b4c897ba3f382b33b6891b498e71380cb6e2ab88888ec43b3b7c95c0"
+      "bytes": 3199,
+      "sha256": "b3700ddbff64ad6e5dce10628b08f296b3a04bb5899cb69130ac6747c8426715"
     },
     {
       "path": "deploy/server/settings.py",
-      "bytes": 10140,
-      "sha256": "f676476ca14a782934b448e62701b829093684c576631143f2e963b04848c1c1"
+      "bytes": 9946,
+      "sha256": "ad2d6364fec9eb23aa7c639cf8639f78edaff3c31e38053acd548a51198dd765"
     },
     {
       "path": "deploy/server/templates/budget.json.example",
@@ -1841,9 +1846,14 @@
       "sha256": "07cc2a34b518212c3563644fe2dee458b82135ec7d2ed022eef6f8ac061fb770"
     },
     {
+      "path": "tools/demo_sms_receiver.html",
+      "bytes": 3618,
+      "sha256": "3ac635b2f4d31192353b75a73ee72725abeab866dab0fb80059a759c2a754204"
+    },
+    {
       "path": "tools/demo_sms_receiver.py",
-      "bytes": 8129,
-      "sha256": "ec3680ff54ca8e0a8969fc0311edf18956ad978a559ed17314bf401856890272"
+      "bytes": 6834,
+      "sha256": "35ab4d38a9dda625d321da6c4a72cc2113ef1fee5ae246b866f902eec01286f4"
     },
     {
       "path": "tools/final_pg.py",
@@ -1889,6 +1899,16 @@
       "path": "tools/server_entry.py",
       "bytes": 7196,
       "sha256": "f3f44348a25b916d7a5c1eb3b3323151c6376c7f189c21c392328c21f96a14ac"
+    },
+    {
+      "path": "docs/assets/demo2-gesture.png",
+      "bytes": 35849,
+      "sha256": "8cedd910ead9d0d3e888635a888937223384c25d7840f46a51d853e115c64d15"
     }
-  ]
+  ],
+  "local_code_change": {
+    "name": "sms-phone-20261102",
+    "tests_run": false,
+    "deployed": false
+  }
 }
