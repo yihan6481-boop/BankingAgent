@@ -44,7 +44,7 @@ export function createRecordedCapture(c:Callbacks&{capabilities:VoiceCapabilitie
     try{recorder.stop()}catch{finish('录音未能正常结束，可继续打字。')}
   }
   return {get active(){return active},start(){
-    if(active)return;active=true;c.onActivity?.(true);c.onNote('正在请求麦克风，请保持按住…')
+    if(active)return;active=true;c.onActivity?.(true);c.onNote('正在请求麦克风，请允许权限后说话…')
     wait(12000,()=>finish('麦克风授权等待超时，尚未开始识别，可继续打字。'))
     void Promise.resolve().then(()=>c.getMedia?c.getMedia():navigator.mediaDevices.getUserMedia({audio:true})).then(value=>{
       if(!active){value.getTracks().forEach(t=>t.stop());return}stream=value
@@ -54,7 +54,7 @@ export function createRecordedCapture(c:Callbacks&{capabilities:VoiceCapabilitie
         if(!c.capabilities.accepted_mime_types.includes(actual.split(';')[0])){finish(voiceMessage('voice_format_unsupported'));return}
         recorder.ondataavailable=event=>{if(!active||!event.data.size)return;size+=event.data.size;if(size>c.capabilities.max_bytes){finish(voiceMessage('voice_audio_size_invalid'));return}chunks.push(event.data)}
         recorder.onerror=()=>finish('录音失败，已释放麦克风，可继续打字。')
-        recorder.onstart=()=>{if(!active||stopping)return;c.onRecording(true);c.onNote('正在录音，松开后提交转写，上滑取消。');wait(c.capabilities.max_duration_ms,stop)}
+        recorder.onstart=()=>{if(!active||stopping)return;c.onRecording(true);c.onNote('正在录音，点击结束后提交转写。');wait(c.capabilities.max_duration_ms,stop)}
         recorder.onstop=()=>{
           release();if(!active)return;clear();c.onRecording(false)
           if(!chunks.length){finish(voiceMessage('voice_no_text'));return}

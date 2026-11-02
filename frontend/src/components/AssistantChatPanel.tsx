@@ -19,9 +19,9 @@ export function ChatPanel({messages,loading,onSend,mode,setMode,children,top,com
 }){
   const scroll=useRef<HTMLDivElement>(null),composing=useRef(false),submitting=useRef(false)
   const [voice,setVoice]=useState(false),[recording,setRecording]=useState(false),[voiceNote,setVoiceNote]=useState(''),[voiceBusy,setVoiceBusy]=useState(false)
-  const [capabilities,setCapabilities]=useState<VoiceCapabilities|null>(null),[channel,setChannel]=useState<'browser'|'recorded'>('browser')
+  const [capabilities,setCapabilities]=useState<VoiceCapabilities|null>(null),[channel,setChannel]=useState<'auto'|'browser'|'recorded'>('auto')
   const [focused,setFocused]=useState(false),[ime,setIme]=useState(false),[pendingVoice,setPendingVoice]=useState('')
-  const recognition=useRef<VoiceHandle|null>(null),startY=useRef(0),inputRef=useRef<HTMLInputElement>(null)
+  const recognition=useRef<VoiceHandle|null>(null),inputRef=useRef<HTMLInputElement>(null)
   const latest=useRef({input,setInput,sid,voiceScope,active});latest.current={input,setInput,sid,voiceScope,active}
   const last=messages[messages.length-1]?.id,lastText=messages[messages.length-1]?.text
   const follow=useRef(true)
@@ -41,17 +41,15 @@ export function ChatPanel({messages,loading,onSend,mode,setMode,children,top,com
   useEffect(()=>{recognition.current?.cancel();recognition.current=null;setPendingVoice('');setVoiceBusy(false);setRecording(false);setVoiceNote('');setVoice(false)},[sid,voiceScope])
   const applyVoice=(text:string)=>{if(composing.current||latest.current.input.length+text.length>2000){setPendingVoice(text);return}latest.current.setInput(latest.current.input+text);setPendingVoice('');setVoice(false)}
   const submit=async()=>{if(!submitting.current&&!loading&&!paused&&!composing.current&&input.trim()){submitting.current=true;const value=input;try{await onSend(value,()=>{if(latest.current.input===value)setInput('')})}finally{submitting.current=false}}}
-  const beginVoice=(e:React.PointerEvent<HTMLButtonElement>)=>{
+  const beginVoice=()=>{
     if(recognition.current)return
     const Speech=(window as any).SpeechRecognition||(window as any).webkitSpeechRecognition
     if(!window.isSecureContext){setVoiceNote('当前页面不是安全连接，麦克风不可用。请使用 HTTPS 或本机地址，或继续文字输入。');return}
     const mime=recordingMime(window.MediaRecorder,capabilities?.accepted_mime_types||[])
-    const useRecorded=channel==='recorded'||!Speech
+    const useRecorded=channel==='recorded'||(channel==='auto'&&!!capabilities?.configured)||!Speech
     if(useRecorded&&(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder)){setVoiceNote('当前环境不支持语音识别或网页录音，可继续打字，或尝试手机键盘自带的语音输入。网页不能直接启动系统听写。');return}
     if(useRecorded&&!capabilities?.configured){setVoiceNote(capabilities?voiceMessage(capabilities.reason||'voice_not_configured'):'录音转写服务状态尚未取得，可继续打字或稍后再试。');return}
     if(useRecorded&&!mime){setVoiceNote(voiceMessage('voice_format_unsupported'));return}
-    try{e.currentTarget.setPointerCapture(e.pointerId)}catch{setVoiceNote('当前页面未能保持按住手势，请重试或继续打字。');return}
-    startY.current=e.clientY
     const owner={sid,voiceScope};const owns=()=>latest.current.sid===owner.sid&&latest.current.voiceScope===owner.voiceScope&&latest.current.active
     const callbacks={onRecording:setRecording,onActivity:setVoiceBusy,onNote:setVoiceNote,onProcessing:()=>setVoice(false),
       onText:(text:string)=>{if(owns())applyVoice(text)},onDone:()=>{if(recognition.current===session)recognition.current=null}}
@@ -71,12 +69,12 @@ export function ChatPanel({messages,loading,onSend,mode,setMode,children,top,com
     </div>
     {chrome.hidden&&<div className="reading-restore" aria-label="恢复聊天操作"><button onClick={()=>{chrome.show();requestAnimationFrame(()=>inputRef.current?.focus())}}>继续输入</button><button onClick={chrome.latest}>回到最新</button></div>}
     <div className="chat-composer-slot"><div className="chat-chrome-inner" aria-hidden={chrome.hidden} ref={node=>{if(node)node.inert=chrome.hidden}}><div className="modern-composer" onFocusCapture={chrome.show}>{composerTools}{!automatic&&<fieldset className="intent-switch" disabled={loading}><label><input type="radio" checked={mode==='analysis'} onChange={()=>setMode('analysis')}/>查询 / 分析</label><label><input type="radio" checked={mode==='action'} onChange={()=>setMode('action')}/>办理业务</label></fieldset>}
-    {voice&&capabilities?.configured&&!!((window as any).SpeechRecognition||(window as any).webkitSpeechRecognition)&&<label className="voice-channel">语音通道<select aria-label="语音通道" value={channel} disabled={voiceBusy} onChange={e=>setChannel(e.target.value as 'browser'|'recorded')}><option value="browser">浏览器识别</option><option value="recorded">录音后转写</option></select></label>}
+    {voice&&capabilities?.configured&&!!((window as any).SpeechRecognition||(window as any).webkitSpeechRecognition)&&<label className="voice-channel">语音通道<select aria-label="语音通道" value={channel} disabled={voiceBusy} onChange={e=>setChannel(e.target.value as 'auto'|'browser'|'recorded')}><option value="auto">自动（优先录音转写）</option><option value="browser">浏览器识别</option><option value="recorded">录音后转写</option></select></label>}
     {!!pendingVoice&&<div className="voice-note"><p>识别文字已保留，正在组词或草稿较长，尚未插入。</p><details><summary>查看待插入文字</summary><p>{pendingVoice}</p></details><button onClick={()=>applyVoice(pendingVoice)}>插入当前草稿</button></div>}
-    {voiceNote&&<p className="voice-note" role="status">{voiceNote}</p>}<div className={`compose-row ${recording?'recording':''}`}>
+    {voiceNote&&<p className="voice-note" role="status">{voiceNote}</p>}{voiceBusy&&<button type="button" className="secondary" onClick={()=>endVoice(true)}>取消本次语音</button>}<div className={`compose-row ${recording?'recording':''}`}>
       <button type="button" aria-label={voice?'切换文字输入':'切换语音输入'} onClick={()=>{endVoice(true);setVoice(!voice);setVoiceNote('')}}><MobileIcon name="voice" size={27}/></button>
-      {voice&&<button type="button" className="hold-to-talk" aria-label="按住说话" onPointerDown={beginVoice} onPointerUp={()=>endVoice()} onPointerCancel={()=>endVoice(true)} onPointerMove={e=>{if(recording&&startY.current-e.clientY>60)endVoice(true)}} onContextMenu={e=>e.preventDefault()}>{recording?'松开结束 · 上滑取消':voiceBusy?'正在处理语音…':'按住说话'}</button>}
-      <input ref={inputRef} hidden={voice} aria-label="输入需求" value={input} maxLength={2000} onFocus={()=>setFocused(true)} onBlur={()=>setFocused(false)} onChange={e=>setInput(e.target.value)} onCompositionStart={()=>{composing.current=true;setIme(true)}} onCompositionEnd={()=>{composing.current=false;setIme(false)}} onKeyDown={e=>{if(e.key==='Enter'&&!e.nativeEvent.isComposing)void submit()}} placeholder={paused?'人工服务期间可保留草稿…':loading?'可编辑下一条草稿，回复结束后发送':'输入问题，或按住说话'} autoComplete="off"/>
+      {voice&&<button type="button" className="hold-to-talk" aria-label={voiceBusy?'结束语音输入':'开始语音输入'} aria-pressed={voiceBusy} onClick={()=>{if(recognition.current)endVoice();else beginVoice()}}>{voiceBusy?'点击结束':'点击说话'}</button>}
+      <input ref={inputRef} hidden={voice} aria-label="输入需求" value={input} maxLength={2000} onFocus={()=>setFocused(true)} onBlur={()=>setFocused(false)} onChange={e=>setInput(e.target.value)} onCompositionStart={()=>{composing.current=true;setIme(true)}} onCompositionEnd={()=>{composing.current=false;setIme(false)}} onKeyDown={e=>{if(e.key==='Enter'&&!e.nativeEvent.isComposing)void submit()}} placeholder={paused?'人工服务期间可保留草稿…':loading?'可编辑下一条草稿，回复结束后发送':'输入问题，或点击语音'} autoComplete="off"/>
       {!voice&&input.trim()?<button type="button" className="send-message" aria-label="发送" disabled={loading||paused} onClick={()=>void submit()}><MobileIcon name="send" size={23}/></button>:<button type="button" aria-label="添加图片或文件" onClick={onAttach}><MobileIcon name="plus" size={27}/></button>}
       <button type="button" aria-label="全部服务" onClick={onServices}><MobileIcon name="grid" size={25}/></button></div></div></div></div></div>
 }

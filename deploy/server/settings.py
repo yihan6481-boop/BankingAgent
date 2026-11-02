@@ -92,7 +92,10 @@ def install(c):
     files=c['files'];models=environment_file(files['model_environment'])
     for k in list(os.environ):
         if k.startswith(('BA_','BA07_','BA091_','LLM_','VISION_','R4_')):os.environ.pop(k,None)
-    os.environ.update({k:v for k,v in models.items() if k.startswith(('LLM_','VISION_','R4_'))})
+    # ASR settings are loaded only from the existing external model config.
+    # Do not preserve arbitrary BA_* variables from the container environment.
+    asr_keys={'BA_ASR_ENABLED','BA_ASR_ENDPOINT','BA_ASR_MODEL','BA_ASR_API_KEY','BA_ASR_MIME_TYPES','BA_ASR_ALLOW_LOOPBACK_HTTP'}
+    os.environ.update({k:v for k,v in models.items() if k.startswith(('LLM_','VISION_','R4_')) or k in asr_keys})
     from psycopg.conninfo import make_conninfo
     d=c['database']
     os.environ.update(BA_STORAGE_BACKEND='postgres',BA_PG_DSN=make_conninfo(host=d['host'],port=d['port'],dbname=d['name'],user=d['role'],passfile=d['passfile']),

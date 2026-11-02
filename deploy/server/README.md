@@ -1,6 +1,6 @@
 # 服务器部署说明
 
-本目录提供现有 Linux Docker Compose 部署方案。清洁包保留业务代码、Compose、Dockerfile、配置模板和依赖锁。本次未连接目标服务器，也未证明当前源码与线上加载版本相同。
+本目录提供现有 Linux Docker Compose 部署方案。清洁包保留业务代码、Compose、Dockerfile、配置模板和依赖锁。本次材料补充了用户执行的voicefix1部署输出及手机语音反馈，详见 ../../docs/VOICE_ACCEPTANCE.md；不表示全部业务或空环境部署已验收。
 
 ## 组件和入口
 
@@ -25,18 +25,11 @@
 
 ## 已配置环境的检查和启动
 
-以下命令仅适用于已经核对好数据库、配置、密钥、模型和证书的环境。工程目录与配置路径须按实际环境填写。
+现有服务器包含多份Compose覆盖，必须保留。实际环境文件由运行中bank容器的 `com.docker.compose.project.environment_file` 标签确定，不能直接套用不存在的通用路径。用户当前文件为 `/srv/banking/config/deployment-20261031-154329/compose.env`。
 
-```bash
-python3 -B deploy/server/verify_package.py .
-docker compose --env-file /srv/banking/config/compose.env -f deploy/server/compose.yaml config --quiet
-docker compose --env-file /srv/banking/config/compose.env -f deploy/server/compose.yaml build
-docker compose --env-file /srv/banking/config/compose.env -f deploy/server/compose.yaml up -d gateway memory
-docker compose --env-file /srv/banking/config/compose.env -f deploy/server/compose.yaml up -d bank sms proxy
-docker compose --env-file /srv/banking/config/compose.env -f deploy/server/compose.yaml exec -T proxy nginx -t
-```
+完整只读检查、语音配置、应用升级、回退及Nginx入口检查见 [VOICE_DEPLOY.md](../../docs/VOICE_DEPLOY.md)。当前r3仅同步材料，已运行的voicefix1无须重复部署。
 
-服务缺依赖时应保留阻断并定位原因，不用关闭权限、关闭记忆、重建原库或清零费用来绕过。镜像标签是构建配置，不是已验证的镜像 digest。
+服务缺依赖时定位原因，不关闭权限、关闭记忆、重建原库或清零费用绕过。镜像标签不能代替运行时指纹，configured=true不能代替真实录音验证。
 
 ## 发布身份与验收
 

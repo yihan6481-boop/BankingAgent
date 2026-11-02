@@ -1,11 +1,11 @@
 {
   "format": 1,
-  "submission_revision": "submission-aligned-20261102-r1",
+  "submission_revision": "submission-voicefix1-20261102-r3",
   "created_date": "2026-11-02",
   "source_baseline": "final5-memoryfix1-slim-20261102",
-  "runtime_content_sha256": "b48223b0817a812cf0afd76700d059e2112b8b5ef8a26486edfbaff6819e5f72",
+  "runtime_content_sha256": "bdafc1c94fa0f8db5434c020976e5732f3cb3d393aae8e71bb3800c6b0b3a544",
   "runtime_content_algorithm": "SHA256 of UTF-8 sorted relative_path + TAB + file_SHA256 + LF for files under backend/frontend/deploy/tools/demo/manual",
-  "runtime_content_file_count": 368,
+  "runtime_content_file_count": 372,
   "business_runtime_changed_in_this_revision": false,
   "sms_receiver_mode": "security_phone_number",
   "historical_ppt_runtime_build": "e0c62a55524a",
@@ -13,10 +13,33 @@
   "historical_server_metadata": "SERVER_VERSION.json is an archived deployment record; not a live server reading",
   "live_server_checked_in_this_revision": false,
   "verification": {
-    "risk_statistics_tests": 17,
-    "risk_statistics_passed": 17,
+    "frontend_build": true,
+    "browser_state_machine_tests_passed": 12,
+    "mock_react_dom_scenarios_passed": 4,
+    "asr_configuration_tests_passed": 9,
+    "risk_statistics_tests_passed": 17,
+    "real_microphone_test": false,
+    "provider_request_test": false,
+    "docker_build": false,
+    "live_deployment": false,
     "full_regression": false,
-    "clean_host_deployment": false
+    "provenance": "Local offline checks; mobile acceptance is user-reported separately. Earlier false live_deployment field refers to packager execution, not user deployment.",
+    "deployment_performed_by_packager": false,
+    "deployment_terminal_output_supplied_by_user": true
   },
-  "delivery_notes": "PPT and reports are separate competition attachments. Current source package excludes .git history, previous tests and logs. See docs/REVIEW_GUIDE.md."
+  "delivery_notes": "Materials and documentation aligned to user-reported Safari/WeChat voice acceptance; application bytes preserved from voicefix1. User deployment evidence is separate from local verification.",
+  "parent_revision": "submission-voicefix1-20261102-r2",
+  "expected_runtime_build": "51b209d36db1cffe4224919f7bedd92c75e1701bd0456f1a5c96f0415def4b7d",
+  "expected_ui_sha256": "5ce8a9342068a628698571710fd27bdb2a8a02a35bfbb75ebdf51de635caa4a5",
+  "file_count": 392,
+  "python_file_count": 210,
+  "user_reported_live_voice_acceptance": {
+    "date": "2026-11-02",
+    "platforms": [
+      "iPhone Safari",
+      "WeChat embedded browser"
+    ],
+    "new_recording_or_screenshot_supplied": false,
+    "record": "docs/VOICE_ACCEPTANCE.md"
+  }
 }

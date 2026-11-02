@@ -1,6 +1,6 @@
 # 评审核验指南
 
-本指南对应 submission-aligned-20261102-r1，区分源码实现、PPT 内已有证据和本次离线检查。本轮未重新登录服务器或发起资金操作。界面与数据以评审时服务器实际状态为准。
+本指南对应 submission-voicefix1-20261102-r3，区分源码实现、PPT历史业务证据、本地离线检查、用户部署输出与手机实测反馈。用户反馈Safari/微信语音可用，未新增资金或完整安全回归；详见VOICE_ACCEPTANCE.md。界面与数据以评审时服务器实际状态为准。
 
 ## 材料分工
 
@@ -17,14 +17,14 @@ README 提供在线入口、demo2 验证信息和体验顺序；技术文档说�
 | 订阅 | backend/subscription_service.py | PPT 2页授权后读取 | 取消流程未在本次演示闭环；订阅读取范围授权不能等同付款授权 |
 | 跨场景任务 | backend/agent/workflow.py、backend/lifecycle/ | PPT 2页入口核对；13页架构 | 任意跨业务组合、外部采购和长期主动通知已实现 |
 | OCR | backend/billvision/、backend/payments/documents.py | PPT 9页128.50元账单保存回读；10页7000元缴费通知字段识别 | 缴费已执行；上传账单已并入银行账本；普遍OCR准确率 |
-| 语音 | backend/api/voice.py、backend/voice_transcription.py | PPT 3页语音入口 | 真实微信、iOS及ASR服务的完整转写成功 |
+| 语音 | backend/api/voice.py、backend/voice_transcription.py | PPT 3页当前操作说明；用户反馈Safari/微信转写可用，另有草稿及取消确认 | 未提供新版成功录屏；不证明全部设备、并发、权限拒绝和供应商故障场景 |
 | 记忆与画像 | backend/recall_bridge/ | PPT 11页偏好来源、版本及新对话回读 | 完整画像案例已验收；记忆可修改账户事实或授权付款 |
 | 反诈提醒 | backend/assistance/risk.py | PPT 7页单次语义提醒；当前17项统计纯函数测试 | 真实诈骗准确率、线上统计提示全链路、自动阻断 |
 | 人工客服 | backend/assistance/service.py、frontend/src/components/SeatWorkspace.tsx | PPT 12页请求保留、当时无人在线 | 坐席已接受、回复及用户收到回复；服务部署在个人电脑上 |
 
 ## 身份与时间范围
 
-PPT 沿用2026-11-02原线上取证。第14页 build e0c62a55524a…、UI 6109625d8918…是当时记录，不是本轮在线检测结果。本次源码含按安全手机号查看模拟短信的实现，是否已部署不能仅凭 ZIP 判断。
+PPT 沿用2026-11-02原线上取证。第14页 build e0c62a55524a…、UI 6109625d8918…是当时记录，不是本轮在线检测结果。本次新增用户提供的voicefix1镜像部署、健康和ASR配置输出，以及Safari/微信语音反馈；原截图和当前反馈分别记录，具体范围见VOICE_ACCEPTANCE.md。
 
 SUBMISSION_VERSION.json 记录此次源码内容摘要和材料范围。MANIFEST.json 验证交付文件；它不能证明服务器已加载同一包，也不证明业务通过。SOURCE_PACKAGE.json 保留原清理记录，SERVER_VERSION.json 保留历史部署字段，不用新的文档修订号替换历史取证指纹。
 
@@ -36,4 +36,4 @@ SUBMISSION_VERSION.json 记录此次源码内容摘要和材料范围。MANIFEST
 4. 表达偏好并在新对话读取，核对来源与版本；画像须开启用途同意，并独立查询银行事实。
 5. 安排坐席使用独立账号在线，补录请求、接收、回复和用户收到回复。demo2 是客户账号，不可当坐席账号使用。
 
-上述为后续核验路线，不是本轮新增通过记录。完整PG、真实模型安全测试、真机语音、并发故障及空环境部署仍需独立记录。
+上述业务路线不是本轮新增通过记录。已有用户手机语音反馈单列于VOICE_ACCEPTANCE.md；完整PG、真实模型安全、其他设备与语音故障场景、并发及空环境部署仍需独立记录。

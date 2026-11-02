@@ -1,7 +1,7 @@
 {
   "format": 1,
   "kind": "source",
-  "package_id": "final5-memoryfix1-slim-20261102",
+  "package_id": "submission-voicefix1-20261102-r3",
   "deployment_id": "baseline-closure-20261031-102233",
   "scope": "Every package file except this manifest itself",
   "files": [
@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 17791,
-      "sha256": "3c487100df26169199ee8156a20a62de8be01283fdf8df0d9934735d543bf17a"
+      "bytes": 16369,
+      "sha256": "503ce285510dc69effa0772341beb3dab4b7853ddd707179059abc7a08ae6169"
     },
     {
       "path": "SERVER_VERSION.json",
@@ -42,8 +42,8 @@
     },
     {
       "path": "SUBMISSION_VERSION.json",
-      "bytes": 1152,
-      "sha256": "302eaae5c3c1cea043c79bf824a4f4fe4846611cb81d4c889b17099fd8dcf622"
+      "bytes": 2238,
+      "sha256": "c2b031013a28d8fdb22d87c730f669c3fe17471ff9693c79aeb6326dacfab26d"
     },
     {
       "path": "backend/.gitignore",
@@ -1207,8 +1207,8 @@
     },
     {
       "path": "deploy/server/README.md",
-      "bytes": 4072,
-      "sha256": "7923ec8786cb3acb0718d32f6141684678ba6bc08bcaf74047823998858d027c"
+      "bytes": 3917,
+      "sha256": "abf741a206770964a0122664b36eb17f092dd9a9adfdf96445867ee11563eadd"
     },
     {
       "path": "deploy/server/__init__.py",
@@ -1267,8 +1267,8 @@
     },
     {
       "path": "deploy/server/settings.py",
-      "bytes": 9946,
-      "sha256": "ad2d6364fec9eb23aa7c639cf8639f78edaff3c31e38053acd548a51198dd765"
+      "bytes": 10249,
+      "sha256": "a1348d04bbf18d308290eaebd5f0ae53d8cdcfe8a929fbb9484506e42007e29c"
     },
     {
       "path": "deploy/server/templates/budget.json.example",
@@ -1307,8 +1307,8 @@
     },
     {
       "path": "deploy/server/templates/model.env.example",
-      "bytes": 457,
-      "sha256": "9f62439ece91ceb67fe9d499a3adaea3a1067dc8f1a6ebfbf6e901a4b59780f5"
+      "bytes": 900,
+      "sha256": "1de0139d6b8b62cedaf7cda602634ea7eb5eec355e8b283901efa870b486c7da"
     },
     {
       "path": "deploy/server/templates/receiver-operator.json.example",
@@ -1326,19 +1326,44 @@
       "sha256": "06a980b3e3b6e400c2ffa1b83a4779a58a173f49d2137579bb31b12ddddc2c2b"
     },
     {
+      "path": "deploy/server/test_voice_configuration.py",
+      "bytes": 3422,
+      "sha256": "75359683d200336b927837d3ea4bd36fef9fb682e782076e1a8dba343b1a5a80"
+    },
+    {
       "path": "deploy/server/verify_package.py",
       "bytes": 632,
       "sha256": "1c9f63f7010c660abb8440cda0081d635a277f4fd7a53c1970143f2a22bd1dec"
     },
     {
+      "path": "deploy/server/voice_check.py",
+      "bytes": 1351,
+      "sha256": "3a475ca51fe65f3abc12b33f188d839ba80560d69f6562915debe4a874cf72a8"
+    },
+    {
       "path": "docs/REVIEW_GUIDE.md",
-      "bytes": 4280,
-      "sha256": "54e5892de021867ef34d92dfff22ed04b18492d5980ca240449d5efb93693449"
+      "bytes": 4645,
+      "sha256": "42328c724e3324f5bfcbb509a2a7431d7631ea01c1fca6273f7f520db429bbd2"
     },
     {
       "path": "docs/TESTING.md",
-      "bytes": 1652,
-      "sha256": "24da03272c18f0307b6aec4c8381066671c51acc99cd8cfade44836e614cd4ac"
+      "bytes": 2754,
+      "sha256": "87dae1c228e98cc1fe6eb697f9e9c688bcfa840cde24046a453119ea77539eb8"
+    },
+    {
+      "path": "docs/VOICE_ACCEPTANCE.md",
+      "bytes": 4931,
+      "sha256": "078773775270578a0af57a0152f36b0ff1dd887e2c0c95e3bd67b0bfc412157d"
+    },
+    {
+      "path": "docs/VOICE_DEPLOY.md",
+      "bytes": 5339,
+      "sha256": "fb89d73c983dc62c64e4d339bf1b5977297134699863272dc15443751da81086"
+    },
+    {
+      "path": "docs/VOICE_FIX.md",
+      "bytes": 1589,
+      "sha256": "c2a4b7677fac8fcd29855da552de6302a5af57d550e1888fddc84cfa4dcf2f65"
     },
     {
       "path": "docs/assets/demo2-gesture.png",
@@ -1361,14 +1386,14 @@
       "sha256": "f410dc756334225deac985ce9196e5413e70549ecd2360f6a03feb5cc63a0182"
     },
     {
-      "path": "frontend/dist/assets/index-DmC2qSFZ.js",
-      "bytes": 532789,
-      "sha256": "c0dd540b274aa515e53a416ed8eed1be8cfa2c046a340de67d60e50f706e67dc"
+      "path": "frontend/dist/assets/index-f325E5Ky.js",
+      "bytes": 533840,
+      "sha256": "f312fc69730567abf4c1d16283515b703f584502e57a5058587395b790b6c1a7"
     },
     {
       "path": "frontend/dist/index.html",
       "bytes": 444,
-      "sha256": "6109625d8918a1d0bfadf925a7df2e746cf2df00114c8f524519f7c3c0d76cd8"
+      "sha256": "5ce8a9342068a628698571710fd27bdb2a8a02a35bfbb75ebdf51de635caa4a5"
     },
     {
       "path": "frontend/dist/motion-demo.html",
@@ -1411,6 +1436,16 @@
       "sha256": "ed1223bc86cea16241bea470eea6d9245a363c5f9ed5a7ba041500841b75ac6f"
     },
     {
+      "path": "frontend/scripts/test-voice-panel.mjs",
+      "bytes": 4581,
+      "sha256": "8a2eff514c6f1d12bcca93c8117e4455d6b97bd3004c5fa00a4747ad25b38e38"
+    },
+    {
+      "path": "frontend/scripts/test-voice.mjs",
+      "bytes": 4234,
+      "sha256": "3bdc66928668878ce3d8f1f7e9b6715287b87cc92ede59e1585e283fd523dff2"
+    },
+    {
       "path": "frontend/src/App.tsx",
       "bytes": 28955,
       "sha256": "434d0c174344a34e212ad136799707075a5001558c286725a65deb0605b38906"
@@ -1447,8 +1482,8 @@
     },
     {
       "path": "frontend/src/components/AssistantChatPanel.tsx",
-      "bytes": 12207,
-      "sha256": "53499d68be20afeb46cd38e06ef291d1b5f09b583c1145e93f245042deeda6b8"
+      "bytes": 12073,
+      "sha256": "5208cc84b41ae8ae87425bd55463086027364c2bed6d46714df3ffe767941632"
     },
     {
       "path": "frontend/src/components/BillVisionPanel.tsx",
@@ -1723,7 +1758,7 @@
     {
       "path": "frontend/src/components/recordedVoice.ts",
       "bytes": 7331,
-      "sha256": "675cceba1ab3e8e75c9563545b1158abcc8653b178fdaec0f6ddba19d1e781d3"
+      "sha256": "e4623f4bf3d23778394b2a527ef164f3ac8b1cc69c651f57a55ddfb42ebaad85"
     },
     {
       "path": "frontend/src/components/replyPresentation.ts",
@@ -1747,8 +1782,8 @@
     },
     {
       "path": "frontend/src/components/voiceSession.ts",
-      "bytes": 2861,
-      "sha256": "ff18d3fed8ca0a574e6dbb8d0722f845028fc2cc513684b610798b247a77817b"
+      "bytes": 4679,
+      "sha256": "7b9561f44fa7de6467266bcc46f8c90dbd2713ac19dd055f2e6c3d910ee9e86a"
     },
     {
       "path": "frontend/src/hooks/useMobileViewport.ts",

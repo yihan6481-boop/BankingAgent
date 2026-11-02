@@ -1,6 +1,6 @@
-# 当前统计反诈测试与复现
+# 定向测试与复现
 
-本次新增 tests/test_risk_statistics.py，执行结果为 **17/17通过，失败0，错误0**。测试日期为2026-11-02；本轮未调用数据库、模型、短信服务或服务器。
+统计测试 tests/test_risk_statistics.py 为17/17通过；语音状态机12/12、配置测试9/9及4个模拟DOM场景通过。离线测试不调用数据库或真实转写服务。用户在服务器执行的部署与真机反馈另见VOICE_ACCEPTANCE.md，不能与模拟测试混为一类。
 
 ## 运行方式
 
@@ -30,3 +30,21 @@ Python 3.11或更新版本，需要 Asia/Shanghai 时区数据。Linux通常由�
 ## 结论边界
 
 以上仅证明统计纯函数在这些输入下返回预期结果，不覆盖数据库查询范围、evaluate的任务绑定、语义线索引用校验、HTTP接口、模型判断、支付授权、短信、交易原子性或上线可用性。不能转换成“反诈准确率100%”或“系统全测通过”。原始历史测试集、日志和数据库备份未恢复进包。
+
+## 语音定向测试
+
+先在干净源码包运行清单检查；重新构建前端会改变交付字节，不应再用原清单认定原包损坏。
+
+```bash
+python -B deploy/server/verify_package.py .
+python -B -m unittest deploy.server.test_voice_configuration -v
+cd frontend
+npm ci --ignore-scripts --no-audit --no-fund
+node --test scripts/test-voice.mjs
+node scripts/test-voice-panel.mjs
+npm run build
+```
+
+服务端配置测试需要依赖锁中的httpx、psycopg等运行依赖，建议使用已有隔离开发环境。状态机测试模拟识别事件和时钟；DOM脚本使用jsdom及模拟MediaRecorder/供应商，验证点击、取消、单次上传、仅回填草稿及未配置提示。9项配置测试核对真实install加载逻辑、敏感字段不泄漏和格式校验，不调用真实供应商。
+
+12项、9项、4场景与17项的覆盖范围不同，不将其合并为“42项端到端测试”。当前材料同步未修改语音实现或重建前端，保留既有voicefix1产物。
