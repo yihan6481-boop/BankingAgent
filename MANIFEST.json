@@ -7,8 +7,8 @@
   "files": [
     {
       "path": ".dockerignore",
-      "bytes": 600,
-      "sha256": "6111eeb22034d2724d13ffc2a8afa166ea5dc99a2476b4afd3838cfaae1a29e2"
+      "bytes": 630,
+      "sha256": "2641844b6dfec4c2885c01684edab3c64cf10055a2e17f0311890c580e487b39"
     },
     {
       "path": ".env.example",

@@ -8,7 +8,7 @@
 |---|---|---|
 | Nginx | 80、443 | HTTPS 主站和模拟短信子域 |
 | bank | 8039 | 宿主机仅回环映射，入口 tools/server_entry.py |
-| sms | 8040 | 独立凭据的模拟短信接收器 |
+| sms | 8040 | 输入银行安全手机号查看短信的模拟接收器 |
 | memory | 18889 | 独立 Hindsight 服务与记忆库 |
 | gateway | 18761 | 模型网关与累计计量账本 |
 | database | 5432 | PostgreSQL 业务与记忆存储，不公开主机端口 |

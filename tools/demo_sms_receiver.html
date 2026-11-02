@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>演示短信接收器</title>
+<style>
+body{background:linear-gradient(125deg,#e1efff,#efebff);font:16px system-ui;color:#172139;margin:0;padding:32px 20px}
+main{max-width:440px;margin:auto;background:#fff;border-radius:24px;padding:25px}
+h1{font-size:23px}p{color:#718099;line-height:1.7}
+input,button{box-sizing:border-box;padding:13px;width:100%;border:1px solid #e3eaf6;border-radius:12px;margin:8px 0}
+button{background:#126aff;color:white;cursor:pointer}
+strong{font-size:38px;letter-spacing:9px;display:block;color:#125be6;margin:20px 0}
+#message{padding:15px;background:#f3f7ff;border-radius:14px}
+</style>
+<main>
+  <h1>演示短信接收器｜模拟发送</h1>
+  <p>输入银行安全中心设置的手机号，查看发送到该号码的演示短信。</p>
+  <form id="login">
+    <label for="phone">安全手机号</label>
+    <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="11" pattern="1[3-9][0-9]{9}" placeholder="请输入11位安全手机号" required>
+    <button id="enter" type="submit">查看该号码的短信</button>
+  </form>
+  <section id="message" aria-live="polite">请输入手机号查看短信</section>
+  <p id="status" role="status"></p>
+  <button id="logout" type="button">退出收件箱</button>
+  <p>Mock通道不证明真实手机号持有权。短信5分钟内有效，到期自动停止展示。</p>
+</main>
+<script>
+const form=document.querySelector('#login'), status=document.querySelector('#status'), box=document.querySelector('#message');
+let inFlight=false;
+form.addEventListener('submit', async event=>{
+  event.preventDefault();
+  if(inFlight||!form.reportValidity())return;
+  inFlight=true;document.querySelector('#enter').disabled=true;
+  try{
+    const phone=document.querySelector('#phone').value.trim();
+    const r=await fetch('/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone})});
+    if(r.ok){document.querySelector('#phone').value='';status.textContent='已进入该号码的演示收件箱';await refresh();}
+    else{status.textContent=r.status===429?'操作过于频繁，请稍后重试':'手机号格式无效或接收器暂不可用';box.textContent='请输入手机号查看短信';}
+  }catch{status.textContent='接收器连接失败，请稍后重试';}
+  finally{inFlight=false;document.querySelector('#enter').disabled=false;}
+});
+async function refresh(){
+  try{
+    const r=await fetch('/messages');
+    if(!r.ok){box.textContent='请输入手机号查看短信';return;}
+    const v=await r.json();box.replaceChildren();
+    if(!v.message){box.textContent='该号码暂无有效演示短信，请先在银行页面完成前置验证并发送短信。';return;}
+    const p=document.createElement('p');p.textContent='安全手机号 '+v.message.phone;
+    const code=document.createElement('strong');code.textContent=v.message.code;
+    const note=document.createElement('p');note.textContent='本次交易验证码，5分钟内有效。请在银行任务验证框输入。';
+    box.append(p,code,note);
+  }catch{status.textContent='暂时无法刷新短信，请稍后重试';}
+}
+document.querySelector('#logout').addEventListener('click',async()=>{
+  try{const r=await fetch('/logout',{method:'POST'});if(r.ok){status.textContent='已退出收件箱';box.textContent='请输入手机号查看短信';}}
+  catch{status.textContent='退出失败，请稍后重试';}
+});
+setInterval(refresh,2000);refresh();
+</script>
+</html>

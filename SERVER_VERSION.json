@@ -5,9 +5,9 @@
   "schema_version": 30,
   "remote": "待创建/待提供",
   "offline_acceptance_passed": null,
-  "linux_container_verified": null,
-  "artifact_build": "c46116d7118a4037efe6f1ae13ee2fcff0785a1ca8fca31a9b7b0c2cae7c6049",
-  "runtime_image_build": null,
+  "linux_container_verified": false,
+  "artifact_build": "d69643388356970638300e3de52cb8155db6e7d2a4fa22105394e99051ddbceb",
+  "runtime_image_build": "d69643388356970638300e3de52cb8155db6e7d2a4fa22105394e99051ddbceb",
   "frontend_source_hashes": {
     "frontend/src/App.tsx": "434d0c174344a34e212ad136799707075a5001558c286725a65deb0605b38906",
     "frontend/src/R2App.tsx": "c36926b7d42669caa7a858b891f6227b24b3f283b509a846701457ef43185638",
@@ -102,5 +102,21 @@
   "package_id": "final5-memoryfix1-slim-20261102",
   "metadata_status": "source_slimming_not_deployed",
   "source_archive_sha256": "dff8648880cd10a80abfc9aac9bbbd10220b8c16cac7eb137c5aa4d1a0902ab2",
-  "deployment_id_note": "Preserved for compatibility with original private configuration; not the source package release ID or proof of current hosting."
+  "deployment_id_note": "Preserved for compatibility with original private configuration; not the source package release ID or proof of current hosting.",
+  "local_code_change": {
+    "name": "sms-phone-20261102",
+    "files": [
+      "backend/security/payment_auth.py",
+      "backend/security/sms_mailbox.py",
+      "tools/demo_sms_receiver.py",
+      "tools/demo_sms_receiver.html",
+      "deploy/server/receiver_issue.py",
+      "deploy/server/settings.py",
+      "deploy/server/health.py"
+    ],
+    "tests_run": false,
+    "deployed": false
+  },
+  "application_tests_run_by_packager": 0,
+  "validation_scope": "Local SMS phone code change only; no tests, build or deployment were run, per user instruction."
 }

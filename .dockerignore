@@ -9,6 +9,7 @@
 !tools/
 !tools/server_entry.py
 !tools/demo_sms_receiver.py
+!tools/demo_sms_receiver.html
 !tools/run_integrated.py
 !manual/
 !manual/bill_vision_review.html

@@ -49,7 +49,6 @@ def load(path):
             p=Path(c[k])
             if not p.is_absolute() or p.resolve().is_relative_to(ROOT) or not p.is_dir():fail('external_state_directory_required')
         if Path(c['files']['spool_key']).resolve()!=Path(c['mobile_state_dir'],'sms','spool.key').resolve():fail('sms_state_key_mismatch')
-        if not Path(c['mobile_state_dir'],'receiver_tokens.json').is_file():fail('receiver_registry_required')
         for k in ['bank_origin','sms_origin']:
             p=url(c[k],https=True)
             if p.path not in {'','/'} or '*' in p.netloc:fail('public_origin_invalid')
@@ -117,7 +116,6 @@ def load_service(path,component):
             import ipaddress
             for ip in c['trusted_proxy_addresses']:ipaddress.ip_address(ip)
             external_file(str(Path(c['mobile_state_dir'])/'sms/spool.key'))
-            external_file(str(Path(c['mobile_state_dir'])/'receiver_tokens.json'))
         elif component=='gateway':
             env=environment_file(c['environment'])
             for k in ['R4_PROVIDER_BASE_URL','R4_GATEWAY_TOKEN','R4_PROVIDER_KEY','R4_TARGET_MODEL']:

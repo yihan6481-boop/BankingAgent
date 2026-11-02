@@ -10,7 +10,7 @@ def probe(kind,filename):
     c=read_json(filename)
     if kind=='sms':
         import socket
-        if not Path(c['mobile_state_dir'],'sms/spool.key').is_file() or not Path(c['mobile_state_dir'],'receiver_tokens.json').is_file():
+        if not Path(c['mobile_state_dir'],'sms/spool.key').is_file():
             raise ConfigurationError('receiver_state_unavailable')
         with socket.create_connection(('127.0.0.1',8040),timeout=4):pass
     else:

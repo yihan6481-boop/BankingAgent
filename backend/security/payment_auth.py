@@ -9,6 +9,7 @@ import hashlib,hmac,json,os,re,secrets
 from .totp import TOTPService
 from .strong_auth import StrongAuthError,StrongAuthService
 from .db import write_transaction,read_connection
+from .sms_mailbox import normalize_phone,phone_inbox
 
 def enabled():
     return os.environ.get('BA_PAYMENT_AUTH_ENABLED')=='1'
@@ -51,8 +52,10 @@ class MockSmsProvider(SmsProvider):
         directory=Path(os.environ.get('BA_DEMO_SMS_DIR','')).expanduser().resolve()
         if directory.is_relative_to(Path(__file__).resolve().parents[2]) or not directory.is_dir():
             raise StrongAuthError('sms_delivery_unavailable','独立演示短信接收器未配置，发送未完成')
-        cipher=Fernet((directory/'spool.key').read_bytes().strip())
-        target=directory/(keyed('inbox:'+str(owner))+'.sms')
+        phone=normalize_phone(phone)
+        spool_key=(directory/'spool.key').read_bytes().strip()
+        cipher=Fernet(spool_key)
+        target=directory/(phone_inbox(phone,spool_key)+'.sms')
         value=dict(phone=mask(phone),code=code,challenge_id=challenge_id,expires_at=expires_at.isoformat(),version=version)
         temporary=directory/(secrets.token_hex(16)+'.tmp')
         try:
